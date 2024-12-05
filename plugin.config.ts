@@ -5,7 +5,7 @@ import { viteStaticCopy } from "vite-plugin-static-copy";
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, "plugin/main.tsx"),
+      entry: resolve(__dirname, "./plugin/main.tsx"),
       name: "Stash Reels",
       // the proper extensions will be added
       fileName: "StashReelsRedux",
@@ -21,7 +21,7 @@ export default defineConfig({
         globals: {
           react: "React",
         },
-        dir: "./plugin/dist",
+        dir: "./build",
       },
     },
   },
@@ -30,7 +30,7 @@ export default defineConfig({
       targets: [
         {
           src: "./plugin/StashReelsRedux.yml",
-          dest: normalizePath(resolve(__dirname, "./plugin/dist")),
+          dest: normalizePath(resolve(__dirname, "./build")),
         },
       ],
     }),

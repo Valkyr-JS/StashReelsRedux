@@ -9,6 +9,7 @@ lerna-debug.log*
 *storybook.log
 
 node_modules
+build
 dist
 dist-ssr
 *.local

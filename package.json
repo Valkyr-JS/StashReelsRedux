@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "build": "npm run build:plugin && npm run build:app",
+    "build:app": "tsc -b && vite build",
+    "build:plugin": "tsc -b && vite build --config plugin.config.ts",
     "dev": "vite",
-    "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "plugin:build": "tsc -b && vite build --config plugin.config.ts",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
