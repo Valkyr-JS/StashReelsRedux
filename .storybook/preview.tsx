@@ -3,7 +3,7 @@ import type { Preview } from "@storybook/react";
 import { initialize, mswLoader } from "msw-storybook-addon";
 import React from "react";
 import { handlers } from "../mocks/handlers";
-import "../src/index.scss";
+import "./theme.scss";
 
 /*
  * Initializes MSW
