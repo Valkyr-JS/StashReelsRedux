@@ -4,6 +4,8 @@ import { useQuery, gql } from "@apollo/client";
 const MyGqlTest: React.FC<MyTestProps> = () => {
   const { loading, error, data } = useFetchInfo();
 
+  console.log(data);
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -12,7 +14,7 @@ const MyGqlTest: React.FC<MyTestProps> = () => {
     return <p>There was an error fetching the data!</p>;
   }
 
-  return <div style={{ color: "white" }}>{data?.findPerformer.name}</div>;
+  return <div style={{ color: "orange" }}>{data?.findPerformer.name}</div>;
 };
 
 export default MyGqlTest;
