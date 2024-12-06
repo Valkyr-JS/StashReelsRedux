@@ -7,12 +7,13 @@
     "build": "npm run build:plugin && npm run build:app",
     "build:app": "tsc -b && vite build",
     "build:plugin": "tsc -b && vite build --config plugin.config.ts",
+    "chromatic": "npx chromatic --project-token=chpt_e680848f798a428",
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_e680848f798a428"
+    "test-storybook": "test-storybook"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -32,6 +33,7 @@
     "@storybook/react": "^8.4.7",
     "@storybook/react-vite": "^8.4.7",
     "@storybook/test": "^8.4.7",
+    "@storybook/test-runner": "^0.20.1",
     "@types/mousetrap": "^1.6.15",
     "@types/node": "^22.10.1",
     "@types/react": "^18.3.12",
