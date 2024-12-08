@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SceneInfoPanel from "./SceneInfoPanel";
 
 const defaultArgs = {
+  o_count: 3,
   play_count: 12,
   studio: {
     image_path:
@@ -28,6 +29,7 @@ export const Default: Story = {};
 
 export const MinimalData: Story = {
   args: {
+    o_count: undefined,
     play_count: undefined,
     studio: {
       image_path: undefined,

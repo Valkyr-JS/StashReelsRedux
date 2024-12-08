@@ -34,6 +34,7 @@
     margin-top: $spacer;
     margin-bottom: 0;
     padding-left: 0;
+    gap: $spacer * 1.5;
 
     li {
       display: grid;
@@ -41,6 +42,10 @@
       gap: $spacer / 2;
       align-items: center;
       line-height: 1;
+    }
+
+    svg {
+      font-size: 18px;
     }
   }
 

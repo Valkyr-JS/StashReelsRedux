@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./SceneInfoPanel.module.scss";
-import { PlayCountIcon } from "../Icons/Icons";
+import { OCountIcon, PlayCountIcon } from "../Icons/Icons";
 
 interface SceneInfoPanelProps {
+  o_count: Scene["o_counter"];
   play_count: Scene["play_count"];
   studio: {
     image_path: Studio["image_path"];
@@ -32,6 +33,10 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
         <li>
           <PlayCountIcon />
           <span>{props.play_count ?? 0}</span>
+        </li>
+        <li>
+          <OCountIcon />
+          <span>{props.o_count ?? 0}</span>
         </li>
       </ul>
     </section>
