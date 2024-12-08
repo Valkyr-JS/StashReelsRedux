@@ -1,3 +1,6 @@
-@mixin h5 {
-  font-size: 1.25rem;
+@mixin title {
+  font-size: 1.5rem;
+  @container (min-width: 500px) {
+    font-size: 2rem;
+  }
 }

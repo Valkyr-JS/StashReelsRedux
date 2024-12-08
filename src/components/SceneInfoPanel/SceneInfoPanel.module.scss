@@ -1,7 +1,10 @@
+@import "../../scss/stash-theme";
+@import "../../scss/stash-index";
 @import "../../scss/variables";
 @import "../../scss/mixins";
 
 .SceneInfoPanel {
+  container-type: size;
   display: flex;
   flex-direction: column;
   padding: $spacer;
@@ -9,16 +12,40 @@
   .studio-logo {
     display: flex;
     justify-content: center;
-    margin-bottom: $spacer;
 
     img {
-      max-height: 8rem;
+      max-height: 6rem;
       max-width: 100%;
+      margin-bottom: $spacer;
     }
+  }
 
-    .studio-name {
-      @include h5;
-      font-style: italic;
+  .title {
+    @include title;
+  }
+
+  .studio-name {
+    color: $text-muted;
+  }
+
+  @container (min-width: 400px) {
+    .header {
+      display: grid;
+      grid-template-columns: [header-start logo-start] max-content [logo-end text-start] auto [text-end header-end];
+      grid-template-rows: [header-top title-top] auto [title-bottom studio-top] auto [studio-bottom header-bottom];
+
+      .studio-logo {
+        grid-column: logo-start/logo-end;
+        grid-row: header-top/header-bottom;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+
+        img {
+          max-width: 6rem;
+          margin-right: $spacer;
+        }
+      }
     }
   }
 }
