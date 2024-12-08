@@ -3,10 +3,11 @@ import SceneInfoPanel from "./SceneInfoPanel";
 
 const defaultArgs = {
   studio: {
-    image_path: "http://192.168.0.20:9999/studio/233/image?t=1696765512",
-    name: "Mia Melano",
+    image_path:
+      import.meta.env.VITE_STASH_URI + "/studio/229/image?t=1696765638",
+    name: "anna.ralphs (OnlyFans)",
   },
-  title: "Birthday",
+  title: "Just some fun before we go to bed",
 };
 
 const meta: Meta<typeof SceneInfoPanel> = {
