@@ -28,6 +28,22 @@
     color: $text-muted;
   }
 
+  .stats {
+    display: flex;
+    list-style: none;
+    margin-top: $spacer;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    li {
+      display: grid;
+      grid-template-columns: [item-start icon-start] auto [icon-end stat-start] auto [stat-end item-end];
+      gap: $spacer / 2;
+      align-items: center;
+      line-height: 1;
+    }
+  }
+
   @container (min-width: 400px) {
     .header {
       display: grid;

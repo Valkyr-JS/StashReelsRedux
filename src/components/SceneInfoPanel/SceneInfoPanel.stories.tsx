@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SceneInfoPanel from "./SceneInfoPanel";
 
 const defaultArgs = {
+  play_count: 12,
   studio: {
     image_path:
       import.meta.env.VITE_STASH_URI + "/studio/229/image?t=1696765638",
@@ -27,6 +28,7 @@ export const Default: Story = {};
 
 export const MinimalData: Story = {
   args: {
+    play_count: undefined,
     studio: {
       image_path: undefined,
       name: "Mia Melano",
