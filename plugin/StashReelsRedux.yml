@@ -1,0 +1,9 @@
+name: StashReelsRedux
+description: A TikTok-inspired interface for browsing content in Stash.
+url: https://github.com/Valkyr-JS/StashReelsRedux
+version: 0.1.0
+ui:
+  assets:
+    /: .
+  javascript:
+    - StashReelsRedux.umd.cjs

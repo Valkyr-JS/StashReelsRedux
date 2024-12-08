@@ -1,0 +1,26 @@
+// https://github.com/stashapp/stash/blob/0621d87133a9e810687e0da27fd3ea65095873a0/ui/v2.5/src/index.tsx
+
+/* stylelint-disable */
+#root {
+  position: relative !important;
+}
+/* stylelint-enable */
+
+html {
+  font-size: 14px;
+}
+
+body {
+  color: $text-color;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 4rem 0 0 0;
+
+  @include media-breakpoint-down(xs) {
+    @media (orientation: portrait) {
+      padding: 1rem 0 5rem;
+    }
+  }
+}
