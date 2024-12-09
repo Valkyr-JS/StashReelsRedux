@@ -1,9 +1,12 @@
+import { useMutation } from "@apollo/client";
 import React from "react";
 import styles from "./SceneInfoPanel.module.scss";
 import { OCountIcon, PlayCountIcon } from "../Icons/Icons";
 import MinimalButton from "../Buttons/MinimalButton/MinimalButton";
+import { sceneMutations } from "../../../gql";
 
 interface SceneInfoPanelProps {
+  id: Scene["id"];
   o_count: Scene["o_counter"];
   play_count: Scene["play_count"];
   studio: {
@@ -25,18 +28,27 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
 
   /* -------------------------------------------- Stats ------------------------------------------- */
 
-  // TODO - Stash mutation to update stats
-  const updateOCount: MinimalButtonMouseEventHandler = (e, updatedState) => {
-    console.log(e, updatedState);
-  };
+  // Play count
+  const [addScenePlayRecord] = useMutation(
+    sceneMutations.ADD_SCENE_PLAY_RECORD,
+    {
+      variables: { sceneID: props.id },
+    }
+  );
 
   const updatePlayCount: MinimalButtonMouseEventHandler = (e, updatedState) => {
+    console.log(e, updatedState);
+    addScenePlayRecord();
+  };
+
+  // O count
+  const updateOCount: MinimalButtonMouseEventHandler = (e, updatedState) => {
     console.log(e, updatedState);
   };
 
   return (
     <section className={styles.SceneInfoPanel}>
-      <div className={styles["header"]}>
+      <div className={styles.header}>
         <div className={styles["studio-logo"]}>{studioLogo}</div>
         <h1 className={styles.title}>{props.title ?? "Untitled"}</h1>
         <div className={styles["studio-name"]}>{props.studio.name}</div>

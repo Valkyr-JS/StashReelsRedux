@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SceneInfoPanel from "./SceneInfoPanel";
 
 const defaultArgs = {
+  id: "1638",
   o_count: 3,
   play_count: 12,
   studio: {
