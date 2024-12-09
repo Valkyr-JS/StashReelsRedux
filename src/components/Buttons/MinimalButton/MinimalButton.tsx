@@ -2,25 +2,41 @@ import React, { useState } from "react";
 import styles from "./MinimalButton.module.scss";
 import { default as cx } from "classnames";
 
-type MinimalButtonProps = MinimalBooleanButtonProps | MinimalNumberButtonProps;
+type MinimalButtonProps = (
+  | MinimalBooleanButtonProps
+  | MinimalNumberButtonProps
+) & {
+  /** The icon to display for the button */
+  Icon: React.FC;
+  /** The mouse event handler. */
+  onClick?: MinimalButtonMouseEventHandler;
+};
 
 interface MinimalBooleanButtonProps
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
+  extends Omit<
+    React.DetailedHTMLProps<
+      React.ButtonHTMLAttributes<HTMLButtonElement>,
+      HTMLButtonElement
+    >,
+    "onClick"
   > {
-  Icon: React.FC;
+  /** The icon to display when the boolean state is `false` */
   IconOff: React.FC;
+  /** The initial state value. */
   state: boolean;
 }
 
 interface MinimalNumberButtonProps
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
+  extends Omit<
+    React.DetailedHTMLProps<
+      React.ButtonHTMLAttributes<HTMLButtonElement>,
+      HTMLButtonElement
+    >,
+    "onClick"
   > {
-  Icon: React.FC;
+  /** The icon to display when the boolean state is `false` */
   IconOff?: undefined;
+  /** The initial state value. */
   state: number;
 }
 
@@ -35,11 +51,11 @@ const MinimalButton: React.FC<MinimalButtonProps> = ({
 
   /** Handler for the button click event. */
   const onClickHandler: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    if (typeof val === "boolean") setState(!val);
-    else setState(val + 1);
+    const updatedState = typeof val === "boolean" ? !val : val + 1;
+    setState(updatedState);
 
     // Trigger a callback function if provided
-    if (props.onClick) props.onClick(e);
+    if (props.onClick) props.onClick(e, updatedState);
   };
 
   const value = typeof val === "boolean" ? null : <span>{val}</span>;

@@ -23,6 +23,17 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
     <img src={props.studio.image_path} alt={props.studio.name} />
   ) : null;
 
+  /* -------------------------------------------- Stats ------------------------------------------- */
+
+  // TODO - Stash mutation to update stats
+  const updateOCount: MinimalButtonMouseEventHandler = (e, updatedState) => {
+    console.log(e, updatedState);
+  };
+
+  const updatePlayCount: MinimalButtonMouseEventHandler = (e, updatedState) => {
+    console.log(e, updatedState);
+  };
+
   return (
     <section className={styles.SceneInfoPanel}>
       <div className={styles["header"]}>
@@ -32,10 +43,18 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
       </div>
       <ul className={styles.stats}>
         <li>
-          <MinimalButton Icon={PlayCountIcon} state={props.play_count ?? 0} />
+          <MinimalButton
+            Icon={PlayCountIcon}
+            onClick={updatePlayCount}
+            state={props.play_count ?? 0}
+          />
         </li>
         <li>
-          <MinimalButton Icon={OCountIcon} state={props.o_count ?? 0} />
+          <MinimalButton
+            Icon={OCountIcon}
+            onClick={updateOCount}
+            state={props.o_count ?? 0}
+          />
         </li>
       </ul>
     </section>
