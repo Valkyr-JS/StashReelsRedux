@@ -4,3 +4,16 @@
     font-size: 2rem;
   }
 }
+
+@mixin button-minimal {
+  background: none;
+  border: none;
+  color: $text-color;
+  transition: none;
+}
+
+@mixin button {
+  // Minimal accessibility
+  min-height: 28px;
+  min-width: 28px;
+}

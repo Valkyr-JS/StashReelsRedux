@@ -1,0 +1,22 @@
+@use "sass:math";
+@import "../../../scss/stash-theme";
+@import "../../../scss/stash-index";
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.MinimalButton {
+  @include button;
+  @include button-minimal;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: $border-radius;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  line-height: 1;
+
+  & > span {
+    margin-left: math.div($spacer, 2);
+  }
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
+import { faHeart } from "@fortawesome/pro-solid-svg-icons/faHeart";
 
 export const OCountIcon: React.FC = () => {
   return (
@@ -25,5 +26,25 @@ export const OCountIcon: React.FC = () => {
 };
 
 export const PlayCountIcon: React.FC = () => {
-  return <FontAwesomeIcon icon={faEye} />;
+  return (
+    <>
+      <FontAwesomeIcon icon={faEye} />
+      <span className="sr-only">Play count</span>
+    </>
+  );
+};
+
+interface FavoriteIconProps {
+  isFavorite?: boolean;
+}
+
+export const FavoriteIcon: React.FC<FavoriteIconProps> = (props) => {
+  const color = props.isFavorite ? "#a82a2a" : undefined;
+  const srText = props.isFavorite ? "Favorited" : "Not favorited";
+  return (
+    <>
+      <FontAwesomeIcon icon={faHeart} color={color} />
+      <span className="sr-only">{srText}</span>
+    </>
+  );
 };
