@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "../../scss/stash-theme";
 @import "../../scss/stash-index";
 @import "../../scss/variables";
@@ -34,19 +35,7 @@
     margin-top: $spacer;
     margin-bottom: 0;
     padding-left: 0;
-    gap: $spacer * 1.5;
-
-    li {
-      display: grid;
-      grid-template-columns: [item-start icon-start] auto [icon-end stat-start] auto [stat-end item-end];
-      gap: $spacer / 2;
-      align-items: center;
-      line-height: 1;
-    }
-
-    svg {
-      font-size: 18px;
-    }
+    gap: math.div($spacer, 2);
   }
 
   @container (min-width: 400px) {

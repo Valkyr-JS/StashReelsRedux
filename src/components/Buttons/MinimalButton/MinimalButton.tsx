@@ -20,7 +20,7 @@ interface MinimalNumberButtonProps
     HTMLButtonElement
   > {
   Icon: React.FC;
-  IconOff: undefined;
+  IconOff?: undefined;
   state: number;
 }
 

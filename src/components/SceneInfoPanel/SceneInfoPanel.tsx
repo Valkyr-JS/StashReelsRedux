@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./SceneInfoPanel.module.scss";
 import { OCountIcon, PlayCountIcon } from "../Icons/Icons";
+import MinimalButton from "../Buttons/MinimalButton/MinimalButton";
 
 interface SceneInfoPanelProps {
   o_count: Scene["o_counter"];
@@ -31,12 +32,10 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
       </div>
       <ul className={styles.stats}>
         <li>
-          <PlayCountIcon />
-          <span>{props.play_count ?? 0}</span>
+          <MinimalButton Icon={PlayCountIcon} state={props.play_count ?? 0} />
         </li>
         <li>
-          <OCountIcon />
-          <span>{props.o_count ?? 0}</span>
+          <MinimalButton Icon={OCountIcon} state={props.o_count ?? 0} />
         </li>
       </ul>
     </section>
