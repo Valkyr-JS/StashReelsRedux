@@ -5,7 +5,7 @@
 @import "../../scss/mixins";
 
 .SceneInfoPanel {
-  container-type: size;
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   padding: $spacer;
