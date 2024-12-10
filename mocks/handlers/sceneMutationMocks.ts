@@ -50,4 +50,26 @@ const AddScenePlayRecordMock = graphql.mutation(
   }
 );
 
-export default [AddSceneORecordMock, AddScenePlayRecordMock];
+/** Mock a SetSceneRating mutation */
+const SetSceneRatingMock = graphql.mutation(
+  "SetSceneRating",
+  function ({ query, variables }) {
+    console.log("SetSceneRating mock query:", query);
+    console.log("SetSceneRating mock variables:", variables);
+
+    return HttpResponse.json({
+      data: {
+        sceneUpdate: {
+          id: variables.input.id,
+          rating100: variables.input.rating100,
+        },
+      },
+    });
+  }
+);
+
+export default [
+  AddSceneORecordMock,
+  AddScenePlayRecordMock,
+  SetSceneRatingMock,
+];

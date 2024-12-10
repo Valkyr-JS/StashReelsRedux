@@ -17,3 +17,13 @@ export const ADD_SCENE_PLAY_RECORD = gql`
     }
   }
 `;
+
+/** Set the rating of a scene. */
+export const SET_SCENE_RATING = gql`
+  mutation SetSceneRating($input: SceneUpdateInput!) {
+    sceneUpdate(input: $input) {
+      id
+      rating100
+    }
+  }
+`;

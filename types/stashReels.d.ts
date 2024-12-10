@@ -15,3 +15,7 @@ interface AddSceneORecordResult {
 interface AddScenePlayRecordResult {
   sceneAddPlay: HistoryMutationResult;
 }
+
+interface SetSceneRatingResult {
+  sceneUpdate: Scene;
+}
