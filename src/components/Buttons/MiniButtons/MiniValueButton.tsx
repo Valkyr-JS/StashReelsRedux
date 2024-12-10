@@ -13,7 +13,8 @@ interface MiniValueButtonProps
   value: number | string;
 }
 
-/** A small button component that displays its current value and an icon. */
+/** A small button component that displays its current value and an icon.
+ * Clicking on the button updates the value. */
 const MiniValueButton: React.FC<MiniValueButtonProps> = ({
   Icon,
   ...props

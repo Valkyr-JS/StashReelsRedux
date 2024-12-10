@@ -2,6 +2,22 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
 import { faHeart } from "@fortawesome/pro-solid-svg-icons/faHeart";
+import { faStar } from "@fortawesome/pro-solid-svg-icons/faStar";
+
+interface FavoriteIconProps {
+  isFavorite?: boolean;
+}
+
+export const FavoriteIcon: React.FC<FavoriteIconProps> = (props) => {
+  const color = props.isFavorite ? "#a82a2a" : undefined;
+  const srText = props.isFavorite ? "Favorited" : "Not favorited";
+  return (
+    <>
+      <FontAwesomeIcon icon={faHeart} color={color} />
+      <span className="sr-only">{srText}</span>
+    </>
+  );
+};
 
 export const OCountIcon: React.FC = () => {
   return (
@@ -37,17 +53,11 @@ export const PlayCountIcon: React.FC = () => {
   );
 };
 
-interface FavoriteIconProps {
-  isFavorite?: boolean;
-}
-
-export const FavoriteIcon: React.FC<FavoriteIconProps> = (props) => {
-  const color = props.isFavorite ? "#a82a2a" : undefined;
-  const srText = props.isFavorite ? "Favorited" : "Not favorited";
+export const RatingIcon: React.FC = () => {
   return (
     <>
-      <FontAwesomeIcon icon={faHeart} color={color} />
-      <span className="sr-only">{srText}</span>
+      <FontAwesomeIcon icon={faStar} color={"gold"} />
+      <span className="sr-only">Rating</span>
     </>
   );
 };
