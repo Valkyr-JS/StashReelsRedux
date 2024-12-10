@@ -4,7 +4,7 @@
 @import "../../../scss/variables";
 @import "../../../scss/mixins";
 
-.MinimalButton {
+.MiniButton {
   @include button;
   @include button-minimal;
   display: flex;
