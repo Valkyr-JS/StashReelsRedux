@@ -16,6 +16,8 @@ interface MiniInputButtonProps
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   >;
+  /** The initial value. */
+  value: number | string;
 }
 
 /** A small button component that displays its current value and an icon.
@@ -28,6 +30,7 @@ const MiniInputButton: React.FC<MiniInputButtonProps> = ({
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [active, setActive] = useState(false);
+  const [value, setValue] = useState(props.value);
 
   /** Wrapper element classes */
   const classes = cx(
@@ -38,19 +41,20 @@ const MiniInputButton: React.FC<MiniInputButtonProps> = ({
     props.className
   );
 
-  /** Input element classes */
-  const inputClasses = cx("text-input", "form-control", inputProps.className);
-
   const icon = Icon ? <Icon /> : null;
+
+  /* --------------------------------------- Input component -------------------------------------- */
 
   /** Handler for the input onBlur event. */
   const onBlurHandler: React.FocusEventHandler<HTMLInputElement> = (e) => {
     // Deactivate the input.
     setActive(false);
 
-    // Execute the callback event, passing the event.
+    // Execute the callback event, passing the event as an argument.
     callback(e);
   };
+
+  const inputClasses = cx("text-input", "form-control", inputProps.className);
 
   // If input is active, render it
   if (active)
@@ -61,10 +65,14 @@ const MiniInputButton: React.FC<MiniInputButtonProps> = ({
           {...inputProps}
           className={inputClasses}
           onBlur={onBlurHandler}
+          onChange={(e) => setValue(e.target.value)}
           ref={inputRef}
+          value={value}
         />
       </span>
     );
+
+  /* -------------------------------------- Button component -------------------------------------- */
 
   /** Handler for the button onClick event. */
   const onClickHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
@@ -77,18 +85,16 @@ const MiniInputButton: React.FC<MiniInputButtonProps> = ({
     }, 50);
   };
 
-  /* ------------------------------------------ Component ----------------------------------------- */
-
   return (
     <button
       {...props}
       type={props.type ?? "button"}
       className={classes}
       onClick={onClickHandler}
-      value={inputProps.value}
+      value={value}
     >
       {icon}
-      <span>{inputProps.value}</span>
+      <span>{value}</span>
     </button>
   );
 };

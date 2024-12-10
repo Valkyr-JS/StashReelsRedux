@@ -5,7 +5,7 @@
 @import "../../../scss/mixins";
 
 .MiniButton {
-  @include button;
+  @include button-accessible;
   @include button-minimal;
   display: inline-flex;
   flex-wrap: nowrap;
