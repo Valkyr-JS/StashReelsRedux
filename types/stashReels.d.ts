@@ -8,6 +8,10 @@ type MinimalButtonMouseEventHandler = (
 /*                                               GQL                                              */
 /* ---------------------------------------------------------------------------------------------- */
 
+interface AddSceneORecordResult {
+  sceneAddO: HistoryMutationResult;
+}
+
 interface AddScenePlayRecordResult {
   sceneAddPlay: HistoryMutationResult;
 }

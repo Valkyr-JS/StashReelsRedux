@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import styles from "./SceneInfoPanel.module.scss";
-import { PlayCountIcon } from "../Icons/Icons";
+import { OCountIcon, PlayCountIcon } from "../Icons/Icons";
 import MinimalButton from "../Buttons/MinimalButton/MinimalButton";
 import { sceneMutations } from "../../../gql";
 
@@ -45,10 +45,22 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
       setPlayCount(res.data?.sceneAddPlay.count ?? 0);
     });
 
-  // // O count
-  // const updateOCount: MinimalButtonMouseEventHandler = (e, updatedState) => {
-  //   console.log(e, updatedState);
-  // };
+  /* ------------------------------------------- O count ------------------------------------------ */
+
+  const [oCount, setOCount] = useState(props.o_count ?? 0);
+
+  // Create the hook for updating the database
+  const [addSceneORecord] = useMutation<AddSceneORecordResult>(
+    sceneMutations.ADD_SCENE_O_RECORD,
+    { variables: { sceneID: props.id } }
+  );
+
+  /** Click event handler for the O count button. */
+  const oCountClickHandler: React.MouseEventHandler<HTMLButtonElement> = () =>
+    addSceneORecord().then((res) => {
+      console.log(res);
+      setOCount(res.data?.sceneAddO.count ?? 0);
+    });
 
   return (
     <section className={styles.SceneInfoPanel}>
@@ -65,13 +77,13 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
             val={playCount}
           />
         </li>
-        {/* <li>
+        <li>
           <MinimalButton
             Icon={OCountIcon}
-            onClick={updateOCount}
-            state={props.o_count ?? 0}
+            onClick={oCountClickHandler}
+            val={oCount}
           />
-        </li> */}
+        </li>
       </ul>
     </section>
   );

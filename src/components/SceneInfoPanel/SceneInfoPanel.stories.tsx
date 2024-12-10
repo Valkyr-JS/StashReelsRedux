@@ -1,10 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import SceneInfoPanel from "./SceneInfoPanel";
-import { MOCK_SCENE_PLAY_RECORD } from "../../../mocks/constants";
+import {
+  MOCK_SCENE_O_RECORD,
+  MOCK_SCENE_PLAY_RECORD,
+} from "../../../mocks/constants";
 
 const defaultArgs = {
   id: "179",
-  o_count: 3,
+  o_count: MOCK_SCENE_O_RECORD,
   play_count: MOCK_SCENE_PLAY_RECORD,
   studio: {
     image_path: import.meta.env.VITE_STASH_URI + "/studio/4/image?t=1733167654",

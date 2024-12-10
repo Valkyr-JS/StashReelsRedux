@@ -1,10 +1,32 @@
 import { graphql, HttpResponse } from "msw";
-import { MOCK_SCENE_PLAY_RECORD } from "../constants";
+import { MOCK_SCENE_O_RECORD, MOCK_SCENE_PLAY_RECORD } from "../constants";
 
 /**
  * For `function*` docs, see:
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*
  */
+
+/** Mock an AddSceneORecord mutation. */
+const AddSceneORecordMock = graphql.mutation(
+  "AddSceneORecord",
+  function* ({ query, variables }) {
+    console.log("AddSceneORecordMock mock query:", query);
+    console.log("AddSceneORecordMock mock variables:", variables);
+
+    let count = MOCK_SCENE_O_RECORD;
+    while (count < 9999) {
+      count++;
+      yield HttpResponse.json({
+        data: { sceneAddO: { count } },
+      });
+    }
+
+    count++;
+    return HttpResponse.json({
+      data: { sceneAddO: { count } },
+    });
+  }
+);
 
 /** Mock an AddScenePlayRecord mutation. */
 const AddScenePlayRecordMock = graphql.mutation(
@@ -28,4 +50,4 @@ const AddScenePlayRecordMock = graphql.mutation(
   }
 );
 
-export default [AddScenePlayRecordMock];
+export default [AddSceneORecordMock, AddScenePlayRecordMock];
