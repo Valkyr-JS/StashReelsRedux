@@ -1,20 +1,20 @@
 import React from "react";
-import styles from "./MiniNumberButton.module.scss";
+import styles from "./MiniButton.module.scss";
 import { default as cx } from "classnames";
 
-interface MiniNumberButtonProps
+interface MiniValueButtonProps
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
   /** The icon to display when the boolean state is `false` */
   Icon: React.FC;
-  /** The displayed value. */
-  value: number;
+  /** The current value. */
+  value: number | string;
 }
 
-/** A mini number button showing an icon and a value. */
-const MiniNumberButton: React.FC<MiniNumberButtonProps> = ({
+/** A small button component that displays its current value and an icon. */
+const MiniValueButton: React.FC<MiniValueButtonProps> = ({
   Icon,
   ...props
 }) => {
@@ -34,4 +34,4 @@ const MiniNumberButton: React.FC<MiniNumberButtonProps> = ({
   );
 };
 
-export default MiniNumberButton;
+export default MiniValueButton;

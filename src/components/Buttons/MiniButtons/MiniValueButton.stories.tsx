@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import MiniNumberButton from "./MiniNumberButton";
+import MiniValueButton from "./MiniValueButton";
 import { PlayCountIcon } from "../../Icons/Icons";
 
-const meta: Meta<typeof MiniNumberButton> = {
-  title: "Components/Buttons/MiniNumberButton",
-  component: MiniNumberButton,
+const meta: Meta<typeof MiniValueButton> = {
+  title: "Components/Buttons/MiniValueButton",
+  component: MiniValueButton,
   tags: ["autodocs"],
 };
 
 export default meta;
-type Story = StoryObj<typeof MiniNumberButton>;
+type Story = StoryObj<typeof MiniValueButton>;
 
 export const PlayCount: Story = {
   args: {

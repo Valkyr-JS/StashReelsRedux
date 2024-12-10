@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import styles from "./SceneInfoPanel.module.scss";
 import { OCountIcon, PlayCountIcon } from "../Icons/Icons";
-import MiniNumberButton from "../Buttons/MiniNumberButton/MiniNumberButton";
+import MiniValueButton from "../Buttons/MiniButtons/MiniValueButton";
 import { sceneMutations } from "../../../gql";
 
 interface SceneInfoPanelProps {
@@ -16,7 +16,7 @@ interface SceneInfoPanelProps {
   title: Scene["title"];
 }
 
-/** React component for the desktop-view scene info panel. */
+/** Responsive component for the scene info panel. */
 const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
   /* ------------------------------------------- Header ------------------------------------------- */
 
@@ -71,14 +71,14 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
       </div>
       <ul className={styles.stats}>
         <li>
-          <MiniNumberButton
+          <MiniValueButton
             Icon={PlayCountIcon}
             onClick={playCountClickHandler}
             value={playCount}
           />
         </li>
         <li>
-          <MiniNumberButton
+          <MiniValueButton
             Icon={OCountIcon}
             onClick={oCountClickHandler}
             value={oCount}
