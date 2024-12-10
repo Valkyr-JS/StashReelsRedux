@@ -2,15 +2,14 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SceneInfoPanel from "./SceneInfoPanel";
 
 const defaultArgs = {
-  id: "1638",
+  id: "179",
   o_count: 3,
   play_count: 12,
   studio: {
-    image_path:
-      import.meta.env.VITE_STASH_URI + "/studio/229/image?t=1696765638",
-    name: "anna.ralphs (OnlyFans)",
+    image_path: import.meta.env.VITE_STASH_URI + "/studio/4/image?t=1733167654",
+    name: "Ass Parade",
   },
-  title: "Just some fun before we go to bed",
+  title: "Mia Malkova's Perfect Ass",
 };
 
 const meta: Meta<typeof SceneInfoPanel> = {

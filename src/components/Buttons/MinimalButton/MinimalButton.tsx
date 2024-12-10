@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./MinimalButton.module.scss";
 import { default as cx } from "classnames";
 
@@ -8,56 +8,37 @@ type MinimalButtonProps = (
 ) & {
   /** The icon to display for the button */
   Icon: React.FC;
-  /** The mouse event handler. */
-  onClick?: MinimalButtonMouseEventHandler;
 };
 
 interface MinimalBooleanButtonProps
-  extends Omit<
-    React.DetailedHTMLProps<
-      React.ButtonHTMLAttributes<HTMLButtonElement>,
-      HTMLButtonElement
-    >,
-    "onClick"
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
   > {
   /** The icon to display when the boolean state is `false` */
   IconOff: React.FC;
-  /** The initial state value. */
-  state: boolean;
+  /** The boolean state of the button. */
+  val: boolean;
 }
 
 interface MinimalNumberButtonProps
-  extends Omit<
-    React.DetailedHTMLProps<
-      React.ButtonHTMLAttributes<HTMLButtonElement>,
-      HTMLButtonElement
-    >,
-    "onClick"
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
   > {
   /** The icon to display when the boolean state is `false` */
   IconOff?: undefined;
-  /** The initial state value. */
-  state: number;
+  /** The displayed value. */
+  val: number;
 }
 
 /** A minimalistic button showing an icon and a value, which updates on click. Boolean  */
 const MinimalButton: React.FC<MinimalButtonProps> = ({
   Icon,
   IconOff,
-  state,
+  val,
   ...props
 }) => {
-  const [val, setState] = useState(state);
-
-  /** Handler for the button click event. */
-  const onClickHandler: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    const updatedState = typeof val === "boolean" ? !val : val + 1;
-    setState(updatedState);
-
-    // Trigger a callback function if provided
-    if (props.onClick) props.onClick(e, updatedState);
-  };
-
   const value = typeof val === "boolean" ? null : <span>{val}</span>;
 
   const currentIcon =
@@ -72,12 +53,7 @@ const MinimalButton: React.FC<MinimalButtonProps> = ({
   );
 
   return (
-    <button
-      {...props}
-      type={props.type ?? "button"}
-      className={classes}
-      onClick={onClickHandler}
-    >
+    <button {...props} type={props.type ?? "button"} className={classes}>
       {currentIcon}
       {value}
     </button>

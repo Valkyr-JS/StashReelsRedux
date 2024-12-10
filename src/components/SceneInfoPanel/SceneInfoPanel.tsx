@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SceneInfoPanel.module.scss";
-import { OCountIcon, PlayCountIcon } from "../Icons/Icons";
+import { PlayCountIcon } from "../Icons/Icons";
 import MinimalButton from "../Buttons/MinimalButton/MinimalButton";
 import { sceneMutations } from "../../../gql";
 
@@ -26,25 +26,29 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
     <img src={props.studio.image_path} alt={props.studio.name} />
   ) : null;
 
-  /* -------------------------------------------- Stats ------------------------------------------- */
+  /* ----------------------------------------- Play count ----------------------------------------- */
 
-  // Play count
-  const [addScenePlayRecord] = useMutation(
+  const [playCount, setPlayCount] = useState(props.play_count ?? 0);
+
+  // Create the hook for updating the database.
+  const [addScenePlayRecord] = useMutation<AddScenePlayRecordResult>(
     sceneMutations.ADD_SCENE_PLAY_RECORD,
-    {
-      variables: { sceneID: props.id },
-    }
+    { variables: { sceneID: props.id } }
   );
 
-  const updatePlayCount: MinimalButtonMouseEventHandler = (e, updatedState) => {
-    console.log(e, updatedState);
-    addScenePlayRecord();
-  };
+  /** Click event handler for the play count button. */
+  const playCountClickHandler: React.MouseEventHandler<
+    HTMLButtonElement
+  > = () =>
+    addScenePlayRecord().then((res) => {
+      console.log(res);
+      setPlayCount(res.data?.sceneAddPlay.count ?? 0);
+    });
 
-  // O count
-  const updateOCount: MinimalButtonMouseEventHandler = (e, updatedState) => {
-    console.log(e, updatedState);
-  };
+  // // O count
+  // const updateOCount: MinimalButtonMouseEventHandler = (e, updatedState) => {
+  //   console.log(e, updatedState);
+  // };
 
   return (
     <section className={styles.SceneInfoPanel}>
@@ -57,17 +61,17 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
         <li>
           <MinimalButton
             Icon={PlayCountIcon}
-            onClick={updatePlayCount}
-            state={props.play_count ?? 0}
+            onClick={playCountClickHandler}
+            val={playCount}
           />
         </li>
-        <li>
+        {/* <li>
           <MinimalButton
             Icon={OCountIcon}
             onClick={updateOCount}
             state={props.o_count ?? 0}
           />
-        </li>
+        </li> */}
       </ul>
     </section>
   );
