@@ -18,10 +18,11 @@ $theme-colors: (
 );
 
 $body-bg: #202b33;
+$text-color: #f5f8fa;
+$body-color: $text-color;
 $text-muted: $muted-gray;
 $link-color: #48aff0;
 $link-hover-color: $link-color;
-$text-color: #f5f8fa;
 $pre-color: $text-color;
 $navbar-dark-color: rgb(245, 248, 250);
 $popover-bg: $secondary;
@@ -38,6 +39,7 @@ $card-cap-bg: rgba(#000, 0.03);
 @import "bootstrap/scss/root.scss";
 @import "bootstrap/scss/reboot.scss";
 @import "bootstrap/scss/buttons.scss";
+@import "bootstrap/scss/forms.scss";
 /* stylelint-enable */
 
 $red1: #a82a2a;

@@ -8,7 +8,7 @@ interface MiniInputButtonProps
     HTMLButtonElement
   > {
   /** The function executed on changing the input value. */
-  callback: () => void;
+  callback: (e: React.FocusEvent<HTMLInputElement, Element>) => void;
   /** The icon to display when the boolean state is `false` */
   Icon?: React.FC;
   /** Input element props when the button is active. */
@@ -16,8 +16,6 @@ interface MiniInputButtonProps
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   >;
-  /** The current value. */
-  value: number | string;
 }
 
 /** A small button component that displays its current value and an icon.
@@ -30,6 +28,8 @@ const MiniInputButton: React.FC<MiniInputButtonProps> = ({
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [active, setActive] = useState(false);
+
+  /** Wrapper element classes */
   const classes = cx(
     "btn",
     "btn-secondary",
@@ -38,27 +38,46 @@ const MiniInputButton: React.FC<MiniInputButtonProps> = ({
     props.className
   );
 
+  /** Input element classes */
+  const inputClasses = cx("text-input", "form-control", inputProps.className);
+
   const icon = Icon ? <Icon /> : null;
 
-  const onBlurHandler: React.FocusEventHandler<HTMLInputElement> = () => {
-    // setActive(false);
-    callback();
+  /** Handler for the input onBlur event. */
+  const onBlurHandler: React.FocusEventHandler<HTMLInputElement> = (e) => {
+    // Deactivate the input.
+    setActive(false);
+
+    // Execute the callback event, passing the event.
+    callback(e);
   };
 
+  // If input is active, render it
   if (active)
     return (
       <span {...props} className={classes}>
         {icon}
-        <input {...inputProps} onBlur={onBlurHandler} ref={inputRef} />
+        <input
+          {...inputProps}
+          className={inputClasses}
+          onBlur={onBlurHandler}
+          ref={inputRef}
+        />
       </span>
     );
 
+  /** Handler for the button onClick event. */
   const onClickHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
+    // Activate the input element.
     setActive(true);
+
+    // Update the input ref after a short timeout to ensure it is findable.
     setTimeout(() => {
       inputRef.current?.focus();
     }, 50);
   };
+
+  /* ------------------------------------------ Component ----------------------------------------- */
 
   return (
     <button
@@ -66,9 +85,10 @@ const MiniInputButton: React.FC<MiniInputButtonProps> = ({
       type={props.type ?? "button"}
       className={classes}
       onClick={onClickHandler}
+      value={inputProps.value}
     >
       {icon}
-      <span>{props.value}</span>
+      <span>{inputProps.value}</span>
     </button>
   );
 };

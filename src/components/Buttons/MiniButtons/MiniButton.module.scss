@@ -7,16 +7,22 @@
 .MiniButton {
   @include button;
   @include button-minimal;
-  display: flex;
+  display: inline-flex;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   border-radius: $border-radius;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding: 0.5rem;
   line-height: 1;
 
-  & > span {
+  & > svg ~ input,
+  & > svg ~ span {
     margin-left: math.div($spacer, 2);
+  }
+
+  input {
+    color: $body-color;
+    border: 0;
+    line-height: 1;
   }
 }

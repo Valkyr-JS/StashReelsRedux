@@ -21,8 +21,7 @@ export const Rating: Story = {
       min: 0,
       step: 0.1,
       max: 10,
-      defaultValue: 0,
+      value: 0,
     },
-    value: 0,
   },
 };
