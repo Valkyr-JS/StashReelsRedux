@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 import MiniValueButton from "./MiniValueButton";
 import { PlayCountIcon } from "../../Icons/Icons";
 
@@ -14,7 +15,7 @@ type Story = StoryObj<typeof MiniValueButton>;
 export const PlayCount: Story = {
   args: {
     Icon: PlayCountIcon,
-    onClick: (e) => console.log(e),
+    onClick: fn(),
     value: 0,
   },
 };
