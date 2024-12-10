@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import SceneInfoPanel from "./SceneInfoPanel";
+import { MOCK_SCENE_PLAY_RECORD } from "../../../mocks/constants";
 
 const defaultArgs = {
   id: "179",
   o_count: 3,
-  play_count: 12,
+  play_count: MOCK_SCENE_PLAY_RECORD,
   studio: {
     image_path: import.meta.env.VITE_STASH_URI + "/studio/4/image?t=1733167654",
     name: "Ass Parade",
