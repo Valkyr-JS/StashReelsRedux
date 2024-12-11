@@ -41,6 +41,7 @@ export const Default: Story = {};
 export const MinimalData: Story = {
   args: {
     date: undefined,
+    details: undefined,
     o_count: undefined,
     play_count: undefined,
     studio: {

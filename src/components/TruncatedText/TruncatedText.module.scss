@@ -1,0 +1,19 @@
+@use "sass:math";
+@import "../../scss/variables";
+
+.truncated-text {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    margin-right: auto;
+    margin-top: math.div($spacer, 2);
+  }
+}
+
+.inner {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: pre-line;
+}

@@ -16,6 +16,7 @@ import {
   stashDateToLongDate,
   userRatingToRating100,
 } from "../../helpers/stash";
+import TruncatedText from "../TruncatedText/TruncatedText";
 
 interface SceneInfoPanelProps {
   date: Scene["date"];
@@ -119,11 +120,6 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
   const oCountClickHandler: React.MouseEventHandler<HTMLButtonElement> = () =>
     addSceneORecord().then((res) => setOCount(res.data?.sceneAddO.count ?? 0));
 
-  /* ------------------------------------------- Details ------------------------------------------ */
-
-  // TODO - Add "read-more" button
-  const details = props.details ? <div>{props.details}</div> : null;
-
   /* ------------------------------------------ Component ----------------------------------------- */
 
   return (
@@ -160,7 +156,7 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
           />
         </li>
       </ul>
-      {details}
+      <TruncatedText lineCount={3} text={props.details} />
     </section>
   );
 };
