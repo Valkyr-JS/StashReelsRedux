@@ -19,3 +19,14 @@ interface AddScenePlayRecordResult {
 interface SetSceneRatingResult {
   sceneUpdate: Scene;
 }
+
+/* ---------------------------------------------------------------------------------------------- */
+/*                                             Schema                                             */
+/* ---------------------------------------------------------------------------------------------- */
+
+interface ConfigUiResult {
+  ratingSystemOptions?: {
+    starPrecision?: "full" | "half" | "quarter" | "tenth";
+    type?: "decimal" | "stars";
+  };
+}

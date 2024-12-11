@@ -16,6 +16,7 @@ const defaultArgs = {
     name: "Ass Parade",
   },
   title: "Mia Malkova's Perfect Ass",
+  userConfig: { ratingSystemOptions: {} },
 };
 
 const meta: Meta<typeof SceneInfoPanel> = {

@@ -5,6 +5,11 @@ import { OCountIcon, PlayCountIcon, RatingIcon } from "../Icons/Icons";
 import MiniInputButton from "../Buttons/MiniButtons/MiniInputButton";
 import MiniValueButton from "../Buttons/MiniButtons/MiniValueButton";
 import { sceneMutations } from "../../../gql";
+import {
+  getRatingInputProps,
+  rating100ToUserRating,
+  userRatingToRating100,
+} from "../../helpers/stash";
 
 interface SceneInfoPanelProps {
   id: Scene["id"];
@@ -16,6 +21,9 @@ interface SceneInfoPanelProps {
     name: Studio["name"];
   };
   title: Scene["title"];
+  userConfig: {
+    ratingSystemOptions: ConfigUiResult["ratingSystemOptions"];
+  };
 }
 
 /** Responsive component for the scene info panel. */
@@ -30,7 +38,13 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
 
   /* ------------------------------------------- Rating ------------------------------------------- */
 
-  const [rating100, setRating100] = useState(props.rating100 ?? 0);
+  // Convert the rating from the Stash database to the user's preferred value.
+  const initialRating = rating100ToUserRating(
+    props.rating100 ?? 0,
+    props.userConfig.ratingSystemOptions
+  );
+
+  const [userRating, setUserRating] = useState(initialRating);
 
   // Create the hook for updating the database.
   const [setSceneRating100] = useMutation<SetSceneRatingResult>(
@@ -38,10 +52,26 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
   );
 
   /** Event handler for setting the rating. */
-  const setRatingHandler = (e: React.FocusEvent<HTMLInputElement, Element>) =>
+  const setRatingHandler = (e: React.FocusEvent<HTMLInputElement, Element>) => {
+    // Convert the value to rating100 before updating the database
+    const updatedUserRating = +e.target.value;
+    const updatedRating100 = userRatingToRating100(
+      updatedUserRating,
+      props.userConfig.ratingSystemOptions
+    );
+
     setSceneRating100({
-      variables: { input: { id: props.id, rating100: +e.target.value } },
-    }).then((res) => setRating100(res.data?.sceneUpdate.rating100 ?? 0));
+      variables: { input: { id: props.id, rating100: updatedRating100 } },
+    }).then((res) => {
+      // Update the state only if the database has successfully updated first.
+      setUserRating(
+        rating100ToUserRating(
+          res.data?.sceneUpdate.rating100 ?? 0,
+          props.userConfig.ratingSystemOptions
+        )
+      );
+    });
+  };
 
   /* ----------------------------------------- Play count ----------------------------------------- */
 
@@ -88,13 +118,10 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
             callback={setRatingHandler}
             Icon={RatingIcon}
             inputProps={{
-              type: "number",
-              min: 0,
-              step: 0.1,
-              max: 10,
+              ...getRatingInputProps(props.userConfig.ratingSystemOptions),
               style: { width: "5rem" },
             }}
-            value={rating100}
+            value={userRating}
           />
         </li>
         <li>
