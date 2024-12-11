@@ -13,10 +13,12 @@ import { sceneMutations } from "../../../gql";
 import {
   getRatingInputProps,
   rating100ToUserRating,
+  stashDateToLongDate,
   userRatingToRating100,
 } from "../../helpers/stash";
 
 interface SceneInfoPanelProps {
+  date: Scene["date"];
   id: Scene["id"];
   o_count: Scene["o_counter"];
   play_count: Scene["play_count"];
@@ -42,6 +44,10 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
   ) : (
     <StudioIcon screenreaderName={props.studio.name} />
   );
+
+  const date = props.date ? (
+    <div className={styles["date"]}>{stashDateToLongDate(props.date)}</div>
+  ) : null;
 
   /* ------------------------------------------- Rating ------------------------------------------- */
 
@@ -117,6 +123,7 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
       <div className={styles.header}>
         <div className={styles["studio-logo"]}>{studioLogo}</div>
         <h1 className={styles.title}>{props.title ?? "Untitled"}</h1>
+        {date}
       </div>
       <ul className={styles.stats}>
         <li>

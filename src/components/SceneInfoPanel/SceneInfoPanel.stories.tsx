@@ -8,6 +8,7 @@ import {
 } from "../../../mocks/constants";
 
 const defaultArgs = {
+  date: "2016-07-11",
   id: "179",
   o_count: MOCK_SCENE_O_RECORD,
   play_count: MOCK_SCENE_PLAY_RECORD,
@@ -38,6 +39,7 @@ export const Default: Story = {};
  * is passed. */
 export const MinimalData: Story = {
   args: {
+    date: undefined,
     o_count: undefined,
     play_count: undefined,
     studio: {
