@@ -19,6 +19,7 @@ import {
 
 interface SceneInfoPanelProps {
   date: Scene["date"];
+  details: Scene["details"];
   id: Scene["id"];
   o_count: Scene["o_counter"];
   play_count: Scene["play_count"];
@@ -118,6 +119,13 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
   const oCountClickHandler: React.MouseEventHandler<HTMLButtonElement> = () =>
     addSceneORecord().then((res) => setOCount(res.data?.sceneAddO.count ?? 0));
 
+  /* ------------------------------------------- Details ------------------------------------------ */
+
+  // TODO - Add "read-more" button
+  const details = props.details ? <div>{props.details}</div> : null;
+
+  /* ------------------------------------------ Component ----------------------------------------- */
+
   return (
     <section className={styles.SceneInfoPanel}>
       <div className={styles.header}>
@@ -152,6 +160,7 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
           />
         </li>
       </ul>
+      {details}
     </section>
   );
 };

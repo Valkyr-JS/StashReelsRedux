@@ -9,6 +9,7 @@ import {
 
 const defaultArgs = {
   date: "2016-07-11",
+  details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis ipsum augue, posuere porta erat ultrices sit amet. Cras vitae est condimentum, iaculis neque at, facilisis nisi. Sed in tellus accumsan, sagittis ligula non, porttitor ipsum. Vestibulum euismod dolor at tincidunt blandit. Vestibulum porta dapibus ex non convallis. Cras vel orci sapien. Aenean id bibendum ipsum, vel dignissim nunc. Quisque commodo diam eu neque porttitor, quis dictum nunc ultrices.`,
   id: "179",
   o_count: MOCK_SCENE_O_RECORD,
   play_count: MOCK_SCENE_PLAY_RECORD,
