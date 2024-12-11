@@ -1,18 +1,22 @@
 import React from "react";
+import TagLink from "../TagLink/TagLink";
+import type { TagLinkProps } from "../TagLink/TagLink";
+import styles from "./TagBoard.module.scss";
 
 interface TagBoardProps {
-  tags: {
-    id: Tag["id"];
-    name: Tag["name"];
-  }[];
+  tags: TagLinkProps[];
 }
 
 const TagBoard: React.FC<TagBoardProps> = (props) => {
   return (
-    <div>
-      {props.tags.map((t) => (
-        <span key={t.id}>{t.name}</span>
-      ))}
+    <div className={styles.TagBoard}>
+      <ul>
+        {props.tags.map((tProps) => (
+          <li key={tProps.id}>
+            <TagLink {...tProps} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

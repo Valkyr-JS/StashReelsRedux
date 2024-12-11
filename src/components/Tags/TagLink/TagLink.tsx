@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./TagLink.module.scss";
 
-interface TagLinkProps {
+export interface TagLinkProps {
   id: Tag["id"];
   name: Tag["name"];
 }

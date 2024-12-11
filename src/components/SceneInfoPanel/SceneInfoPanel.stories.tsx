@@ -17,6 +17,15 @@ const defaultArgs = {
     image_path: import.meta.env.VITE_STASH_URI + "/studio/4/image?t=1733167654",
     name: "Ass Parade",
   },
+  tags: [
+    { id: "1", name: "Tag A" },
+    { id: "2", name: "Tag Beta" },
+    { id: "3", name: "This is the next tag" },
+    { id: "4", name: "T" },
+    { id: "5", name: "Taggy McTagFace" },
+    { id: "6", name: "Tagbert" },
+    { id: "7", name: "Tag Q" },
+  ],
   title: "Mia Malkova's Perfect Ass",
   userConfig: { ratingSystemOptions: {} },
 };

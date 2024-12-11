@@ -1,0 +1,16 @@
+@use "sass:math";
+@import "../../../scss/variables";
+
+.TagBoard {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    // Make up for tag margins
+    margin: math.div($spacer, 2) * -1;
+  }
+}

@@ -13,8 +13,12 @@ export const Default: Story = {
   args: {
     tags: [
       { id: "1", name: "Tag A" },
-      { id: "2", name: "Tag B" },
-      { id: "3", name: "Tag C" },
+      { id: "2", name: "Tag Beta" },
+      { id: "3", name: "This is the next tag" },
+      { id: "4", name: "T" },
+      { id: "5", name: "Taggy McTagFace" },
+      { id: "6", name: "Tagbert" },
+      { id: "7", name: "Tag Q" },
     ],
   },
 };

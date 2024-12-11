@@ -17,6 +17,8 @@ import {
   userRatingToRating100,
 } from "../../helpers/stash";
 import TruncatedText from "../TruncatedText/TruncatedText";
+import TagBoard from "../Tags/TagBoard/TagBoard";
+import { TagLinkProps } from "../Tags/TagLink/TagLink";
 
 interface SceneInfoPanelProps {
   date: Scene["date"];
@@ -29,6 +31,7 @@ interface SceneInfoPanelProps {
     image_path: Studio["image_path"];
     name: Studio["name"];
   };
+  tags: TagLinkProps[];
   title: Scene["title"];
   userConfig: {
     ratingSystemOptions: ConfigUiResult["ratingSystemOptions"];
@@ -157,6 +160,8 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
         </li>
       </ul>
       <TruncatedText lineCount={3} text={props.details} />
+      <hr />
+      <TagBoard tags={props.tags} />
     </section>
   );
 };
