@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
 import { faHeart } from "@fortawesome/pro-solid-svg-icons/faHeart";
 import { faStar } from "@fortawesome/pro-solid-svg-icons/faStar";
+import { faVideo } from "@fortawesome/pro-solid-svg-icons/faVideo";
 
 interface FavoriteIconProps {
   isFavorite?: boolean;
@@ -58,6 +59,24 @@ export const RatingIcon: React.FC = () => {
     <>
       <FontAwesomeIcon icon={faStar} color={"gold"} />
       <span className="sr-only">Rating</span>
+    </>
+  );
+};
+
+interface StudioIconProps {
+  /** The name of the studio to be read aloud by screenreaders.  */
+  screenreaderName?: string;
+}
+
+export const StudioIcon: React.FC<StudioIconProps> = (props) => {
+  const srEl = props.screenreaderName ? (
+    <span className="sr-only">{props.screenreaderName}</span>
+  ) : null;
+
+  return (
+    <>
+      <FontAwesomeIcon icon={faVideo} />
+      {srEl}
     </>
   );
 };

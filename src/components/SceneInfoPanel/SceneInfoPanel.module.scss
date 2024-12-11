@@ -13,11 +13,14 @@
   .studio-logo {
     display: flex;
     justify-content: center;
+    margin-bottom: $spacer;
 
-    img {
+    img,
+    svg {
       max-height: 6rem;
       max-width: 100%;
-      margin-bottom: $spacer;
+
+      font-size: 4rem;
     }
   }
 
@@ -25,7 +28,7 @@
     @include title;
   }
 
-  .studio-name {
+  .date {
     color: $text-muted;
   }
 
@@ -41,8 +44,9 @@
   @container (min-width: 400px) {
     .header {
       display: grid;
-      grid-template-columns: [header-start logo-start] max-content [logo-end text-start] auto [text-end header-end];
+      grid-template-columns: [header-start logo-start] 6rem [logo-end text-start] auto [text-end header-end];
       grid-template-rows: [header-top title-top] auto [title-bottom studio-top] auto [studio-bottom header-bottom];
+      column-gap: $spacer;
 
       .studio-logo {
         grid-column: logo-start/logo-end;
@@ -52,8 +56,7 @@
         margin-bottom: 0;
 
         img {
-          width: 6rem;
-          margin-right: $spacer;
+          width: 100%;
           margin-bottom: 0;
         }
       }

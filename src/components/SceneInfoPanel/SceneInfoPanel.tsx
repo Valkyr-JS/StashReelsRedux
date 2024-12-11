@@ -1,7 +1,12 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import styles from "./SceneInfoPanel.module.scss";
-import { OCountIcon, PlayCountIcon, RatingIcon } from "../Icons/Icons";
+import {
+  OCountIcon,
+  PlayCountIcon,
+  RatingIcon,
+  StudioIcon,
+} from "../Icons/Icons";
 import MiniInputButton from "../Buttons/MiniButtons/MiniInputButton";
 import MiniValueButton from "../Buttons/MiniButtons/MiniValueButton";
 import { sceneMutations } from "../../../gql";
@@ -34,7 +39,9 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
   // logo.
   const studioLogo = props.studio.image_path ? (
     <img src={props.studio.image_path} alt={props.studio.name} />
-  ) : null;
+  ) : (
+    <StudioIcon screenreaderName={props.studio.name} />
+  );
 
   /* ------------------------------------------- Rating ------------------------------------------- */
 
@@ -110,7 +117,6 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
       <div className={styles.header}>
         <div className={styles["studio-logo"]}>{studioLogo}</div>
         <h1 className={styles.title}>{props.title ?? "Untitled"}</h1>
-        <div className={styles["studio-name"]}>{props.studio.name}</div>
       </div>
       <ul className={styles.stats}>
         <li>
