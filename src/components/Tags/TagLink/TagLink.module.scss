@@ -1,0 +1,8 @@
+@use "sass:math";
+@import "../../../scss/stash-theme";
+@import "../../../scss/variables";
+
+.tag-link {
+  margin: math.div($spacer, 2);
+  min-width: 44px;
+}

@@ -2,6 +2,8 @@
 
 /* Blueprint dark theme */
 
+$prefix: "reels-";
+
 $secondary: #394b59;
 $muted-gray: #bfccd6;
 $success: #0f9960;
@@ -32,14 +34,7 @@ $card-bg: #30404d;
 $card-cap-bg: rgba(#000, 0.03);
 
 /* stylelint-disable */
-@import "bootstrap/scss/functions.scss";
-@import "bootstrap/scss/variables.scss";
-@import "bootstrap/scss/maps.scss";
-@import "bootstrap/scss/mixins.scss";
-@import "bootstrap/scss/root.scss";
-@import "bootstrap/scss/reboot.scss";
-@import "bootstrap/scss/buttons.scss";
-@import "bootstrap/scss/forms.scss";
+@import "bootstrap/scss/bootstrap.scss";
 /* stylelint-enable */
 
 $red1: #a82a2a;
@@ -47,3 +42,20 @@ $orange1: #a66321;
 $sepia1: #63411e;
 $dark-gray2: #202b33;
 $dark-gray5: #394b59;
+
+.btn-light {
+  --#{$prefix}btn-color: #000;
+  --#{$prefix}btn-bg: #f8f9fa;
+  --#{$prefix}btn-border-color: #f8f9fa;
+  --#{$prefix}btn-hover-color: #000;
+  --#{$prefix}btn-hover-bg: #d3d4d5;
+  --#{$prefix}btn-hover-border-color: #c6c7c8;
+  --#{$prefix}btn-focus-shadow-rgb: 211, 212, 213;
+  --#{$prefix}btn-active-color: #000;
+  --#{$prefix}btn-active-bg: #c6c7c8;
+  --#{$prefix}btn-active-border-color: #babbbc;
+  --#{$prefix}btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --#{$prefix}btn-disabled-color: #000;
+  --#{$prefix}btn-disabled-bg: #f8f9fa;
+  --#{$prefix}btn-disabled-border-color: #f8f9fa;
+}
