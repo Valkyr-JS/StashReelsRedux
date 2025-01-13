@@ -27,7 +27,7 @@ interface SceneInfoPanelProps {
   o_count: Scene["o_counter"];
   play_count: Scene["play_count"];
   rating100: Scene["rating100"];
-  studio: {
+  studio?: {
     image_path: Studio["image_path"];
     name: Studio["name"];
   };
@@ -44,11 +44,16 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
 
   // If there is an image for the studio, use it. Otherwise, create a text
   // logo.
-  const studioLogo = props.studio.image_path ? (
-    <img src={props.studio.image_path} alt={props.studio.name} />
+  const studioLogo = props.studio?.image_path ? (
+    <img src={props.studio?.image_path} alt={props.studio?.name} />
   ) : (
-    <StudioIcon screenreaderName={props.studio.name} />
+    <StudioIcon screenreaderName={props.studio?.name} />
   );
+
+  // Only return the studio logo if a studio is available
+  const studio = props.studio ? (
+    <div className={styles["studio-logo"]}>{studioLogo}</div>
+  ) : null;
 
   const date = props.date ? (
     <div className={styles["date"]}>{stashDateToLongDate(props.date)}</div>
@@ -128,7 +133,7 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
   return (
     <section className={styles.SceneInfoPanel}>
       <div className={styles.header}>
-        <div className={styles["studio-logo"]}>{studioLogo}</div>
+        {studio}
         <h1 className={styles.title}>{props.title ?? "Untitled"}</h1>
         {date}
       </div>

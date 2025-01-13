@@ -5,8 +5,25 @@ import {
   MOCK_SCENE_PLAY_RECORD,
 } from "../../../mocks/constants";
 
+const meta: Meta<typeof SceneInfoPanel> = {
+  title: "Components/Scene/InfoPanel",
+  component: SceneInfoPanel,
+  tags: ["autodocs"],
+  args: {
+    userConfig: { ratingSystemOptions: {} },
+  },
+  parameters: {
+    layout: "fullscreen",
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof SceneInfoPanel>;
+
+/* ------------------------------------------ Example 1 ----------------------------------------- */
+
 const defaultArgs = {
-  date: "2016-07-11",
+  date: "2025-01-01",
   details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis ipsum augue, posuere porta erat ultrices sit amet. Cras vitae est condimentum, iaculis neque at, facilisis nisi. Sed in tellus accumsan, sagittis ligula non, porttitor ipsum. Vestibulum euismod dolor at tincidunt blandit. Vestibulum porta dapibus ex non convallis. Cras vel orci sapien. Aenean id bibendum ipsum, vel dignissim nunc. Quisque commodo diam eu neque porttitor, quis dictum nunc ultrices.`,
   id: "179",
   o_count: MOCK_SCENE_O_RECORD,
@@ -24,24 +41,14 @@ const defaultArgs = {
     { id: "6", name: "Tagbert" },
     { id: "7", name: "Tag Q" },
   ],
-  title: "Mia Malkova's Perfect Ass",
-  userConfig: { ratingSystemOptions: {} },
+  title: "Lorem ipsum dolor sit amet",
 };
 
-const meta: Meta<typeof SceneInfoPanel> = {
-  title: "Components/Scene/InfoPanel",
-  component: SceneInfoPanel,
-  tags: ["autodocs"],
+export const Default: Story = {
   args: defaultArgs,
-  parameters: {
-    layout: "fullscreen",
-  },
 };
 
-export default meta;
-type Story = StoryObj<typeof SceneInfoPanel>;
-
-export const Default: Story = {};
+/* ---------------------------------------- Minimal data ---------------------------------------- */
 
 /** The appearance of the scene info panel when only the minimum required data
  * is passed. */
@@ -49,12 +56,10 @@ export const MinimalData: Story = {
   args: {
     date: undefined,
     details: undefined,
+    id: "179",
     o_count: undefined,
     play_count: undefined,
-    studio: {
-      image_path: undefined,
-      name: "Mia Melano",
-    },
+    tags: [],
     title: undefined,
   },
 };
