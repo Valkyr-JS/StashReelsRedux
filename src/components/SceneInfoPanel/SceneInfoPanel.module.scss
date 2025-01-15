@@ -28,8 +28,22 @@
     @include title;
   }
 
+  .subheader {
+    display: grid;
+    grid-template-columns: [subheader-start date-start] 1fr [date-end file-info-start] auto [file-info-end subheader-end];
+  }
+
   .date {
+    grid-column: date-start / date-end;
     color: $text-muted;
+  }
+
+  .file-info {
+    grid-column: file-info-start / file-info-end;
+  }
+
+  .resolution {
+    font-weight: 700;
   }
 
   .stats {

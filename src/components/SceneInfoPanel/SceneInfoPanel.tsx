@@ -23,6 +23,10 @@ import { TagLinkProps } from "../Tags/TagLink/TagLink";
 interface SceneInfoPanelProps {
   date: Scene["date"];
   details: Scene["details"];
+  files: {
+    frame_rate: VideoFile["frame_rate"];
+    height: VideoFile["height"];
+  }[];
   id: Scene["id"];
   o_count: Scene["o_counter"];
   play_count: Scene["play_count"];
@@ -40,6 +44,7 @@ interface SceneInfoPanelProps {
 
 /** Responsive component for the scene info panel. */
 const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
+  const primaryFile = props.files[0];
   /* ------------------------------------------- Header ------------------------------------------- */
 
   // If there is an image for the studio, use it. Otherwise, create a text
@@ -55,9 +60,22 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
     <div className={styles["studio-logo"]}>{studioLogo}</div>
   ) : null;
 
+  /* ------------------------------------------ Subheader ----------------------------------------- */
+
   const date = props.date ? (
     <div className={styles["date"]}>{stashDateToLongDate(props.date)}</div>
   ) : null;
+
+  const subheader = (
+    <div className={styles["subheader"]}>
+      {date}
+      <span className={styles["file-info"]}>
+        <span className={styles["framerate"]}>{primaryFile.frame_rate}fps</span>
+        <span className={styles["divider"]}> | </span>
+        <span className={styles["resolution"]}>{primaryFile.height}p</span>
+      </span>
+    </div>
+  );
 
   /* ------------------------------------------- Rating ------------------------------------------- */
 
@@ -135,8 +153,8 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
       <div className={styles.header}>
         {studio}
         <h1 className={styles.title}>{props.title ?? "Untitled"}</h1>
-        {date}
       </div>
+      {subheader}
       <ul className={styles.stats}>
         <li>
           <MiniInputButton
