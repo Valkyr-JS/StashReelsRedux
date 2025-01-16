@@ -62,6 +62,12 @@ export const MinimalData: Story = {
   args: {
     date: undefined,
     details: undefined,
+    files: [
+      {
+        frame_rate: 23.98,
+        height: 1080,
+      },
+    ],
     id: "179",
     o_count: undefined,
     play_count: undefined,
