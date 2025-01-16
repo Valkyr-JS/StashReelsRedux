@@ -1,6 +1,11 @@
+@use "sass:math";
+@import "../../../scss/stash-theme";
+@import "../../../scss/stash-index";
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
 .PerformerCard {
-  display: flex;
-  flex-direction: column;
+  @include card;
 
   .image-container img {
     aspect-ratio: 2 / 3;
