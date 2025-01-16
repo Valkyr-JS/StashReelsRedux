@@ -16,7 +16,6 @@ const meta: Meta<typeof PerformerCard> = {
   title: "Components/Performers/PerformerCard",
   component: PerformerCard,
   tags: ["autodocs", "cards", "performers"],
-  decorators: (StoryFn) => <div style={{ maxWidth: 300 }}>{StoryFn()}</div>,
 };
 
 export default meta;
