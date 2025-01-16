@@ -6,19 +6,19 @@ import {
   PlayCountIcon,
   RatingIcon,
   StudioIcon,
-} from "../Icons/Icons";
-import MiniInputButton from "../Buttons/MiniButtons/MiniInputButton";
-import MiniValueButton from "../Buttons/MiniButtons/MiniValueButton";
-import { sceneMutations } from "../../../gql";
+} from "../../Icons/Icons";
+import MiniInputButton from "../../Buttons/MiniButtons/MiniInputButton";
+import MiniValueButton from "../../Buttons/MiniButtons/MiniValueButton";
+import { sceneMutations } from "../../../../gql";
 import {
   getRatingInputProps,
   rating100ToUserRating,
   stashDateToLongDate,
   userRatingToRating100,
-} from "../../helpers/stash";
-import TruncatedText from "../TruncatedText/TruncatedText";
-import TagBoard from "../Tags/TagBoard/TagBoard";
-import { TagLinkProps } from "../Tags/TagLink/TagLink";
+} from "../../../helpers/stash";
+import TruncatedText from "../../TruncatedText/TruncatedText";
+import TagBoard from "../../Tags/TagBoard/TagBoard";
+import { TagLinkProps } from "../../Tags/TagLink/TagLink";
 
 interface SceneInfoPanelProps {
   date: Scene["date"];

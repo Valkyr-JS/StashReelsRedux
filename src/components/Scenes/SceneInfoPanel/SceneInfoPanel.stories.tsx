@@ -3,10 +3,10 @@ import SceneInfoPanel from "./SceneInfoPanel";
 import {
   MOCK_SCENE_O_RECORD,
   MOCK_SCENE_PLAY_RECORD,
-} from "../../../mocks/constants";
+} from "../../../../mocks/constants";
 
 const meta: Meta<typeof SceneInfoPanel> = {
-  title: "Components/Scene/InfoPanel",
+  title: "Components/Scenes/InfoPanel",
   component: SceneInfoPanel,
   tags: ["autodocs"],
   args: {
