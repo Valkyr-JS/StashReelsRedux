@@ -17,7 +17,7 @@ import {
   userRatingToRating100,
 } from "../../../helpers/stash";
 import TruncatedText from "../../TruncatedText/TruncatedText";
-import TagBoard from "../../Tags/TagBoard/TagBoard";
+import TagList from "../../Tags/TagList/TagList";
 import { TagLinkProps } from "../../Tags/TagLink/TagLink";
 
 interface SceneInfoPanelProps {
@@ -184,7 +184,7 @@ const SceneInfoPanel: React.FC<SceneInfoPanelProps> = (props) => {
       </ul>
       <TruncatedText lineCount={3} text={props.details} />
       <hr />
-      <TagBoard tags={props.tags} />
+      <TagList tags={props.tags} />
     </section>
   );
 };

@@ -1,15 +1,15 @@
 import React from "react";
 import TagLink from "../TagLink/TagLink";
 import type { TagLinkProps } from "../TagLink/TagLink";
-import styles from "./TagBoard.module.scss";
+import styles from "./TagList.module.scss";
 
-interface TagBoardProps {
+interface TagListProps {
   tags: TagLinkProps[];
 }
 
-const TagBoard: React.FC<TagBoardProps> = (props) => {
+const TagList: React.FC<TagListProps> = (props) => {
   return (
-    <div className={styles.TagBoard}>
+    <div className={styles.TagList}>
       <ul>
         {props.tags.map((tProps) => (
           <li key={tProps.id}>
@@ -21,4 +21,4 @@ const TagBoard: React.FC<TagBoardProps> = (props) => {
   );
 };
 
-export default TagBoard;
+export default TagList;

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import TagBoard from "./TagBoard";
+import TagList from "./TagList";
 
-const meta: Meta<typeof TagBoard> = {
-  title: "Components/Tags/TagBoard",
-  component: TagBoard,
+const meta: Meta<typeof TagList> = {
+  title: "Components/Tags/TagList",
+  component: TagList,
   tags: ["autodocs"],
 };
 export default meta;
-type Story = StoryObj<typeof TagBoard>;
+type Story = StoryObj<typeof TagList>;
 
 export const Default: Story = {
   args: {
