@@ -1,4 +1,11 @@
 .PerformerCard {
   display: flex;
   flex-direction: column;
+
+  .image-container img {
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+  }
 }

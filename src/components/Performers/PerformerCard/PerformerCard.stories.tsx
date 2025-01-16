@@ -1,35 +1,61 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import PerformerCard from "./index";
 import performerData from "../../../../mocks/data/performers.json";
+import sceneData from "../../../../mocks/data/scenes.json";
+
+/** Get mock performer data from the JSON file and return the required data. */
+const getPerformerData = (index: number) => ({
+  birthdate: performerData[index].birthdate,
+  disambiguation: performerData[index].disambiguation,
+  gender: performerData[index].gender as Performer["gender"],
+  image_path: performerData[index].image_path,
+  name: performerData[index].name,
+});
 
 const meta: Meta<typeof PerformerCard> = {
   title: "Components/Performers/PerformerCard",
   component: PerformerCard,
-  tags: ["autodocs", "card", "performers"],
+  tags: ["autodocs", "cards", "performers"],
+  decorators: (StoryFn) => <div style={{ maxWidth: 300 }}>{StoryFn()}</div>,
 };
 
 export default meta;
 type Story = StoryObj<typeof PerformerCard>;
 
-export const GisellePalmer: Story = {
+export const GisellePalmerScene: Story = {
   args: {
-    ...performerData[1],
-    gender: performerData[1].gender as Performer["gender"],
+    ...getPerformerData(2),
+    content_context: {
+      date: new Date(sceneData[1].date),
+      type: "scene",
+    },
   },
+  tags: ["scenes"],
 };
 
-export const JohnnySins: Story = {
+export const JohnnySinsScene: Story = {
   args: {
-    ...performerData[2],
-    gender: performerData[2].gender as Performer["gender"],
+    ...getPerformerData(3),
+    content_context: {
+      date: new Date(sceneData[1].date),
+      type: "scene",
+    },
   },
+  tags: ["scenes"],
 };
 
 export const MiaMelano: Story = {
   args: {
-    ...performerData[0],
-    gender: performerData[0].gender as Performer["gender"],
+    ...getPerformerData(1),
+    content_context: {
+      date: new Date(sceneData[0].date),
+      type: "scene",
+    },
   },
 };
 
-export const MinimalData: Story = {};
+export const MinimalData: Story = {
+  args: {
+    ...getPerformerData(0),
+  },
+};

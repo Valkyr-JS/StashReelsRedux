@@ -1,4 +1,52 @@
 query {
+  findPerformer(id: ) {
+    id
+    name
+    disambiguation
+    urls
+    gender
+    birthdate
+    ethnicity
+    country
+    eye_color
+    height_cm
+    measurements
+    fake_tits
+    penis_length
+    circumcised
+    career_length
+    tattoos
+    piercings
+    alias_list
+    favorite
+    tags {
+      id
+    }
+    ignore_auto_tag
+    image_path
+    scene_count
+    image_count
+    gallery_count
+    group_count
+    performer_count
+    o_counter
+    scenes { id}
+    stash_ids {
+      endpoint
+      stash_id
+    }
+    rating100
+    details
+    death_date
+    hair_color
+    weight
+    created_at
+    updated_at
+    groups {id}id
+  }
+}
+
+query {
   findScene(id: ) {
     id
     title
