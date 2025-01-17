@@ -1,5 +1,8 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
+import nextConfig from "../../next.config";
+
+const appPath = nextConfig.basePath;
 
 export default function Home() {
   return (
@@ -7,7 +10,7 @@ export default function Home() {
       <main className={styles.main}>
         <Image
           className={styles.logo}
-          src="/next.svg"
+          src={appPath + "/next.svg"}
           alt="Next.js logo"
           width={180}
           height={38}
@@ -29,7 +32,7 @@ export default function Home() {
           >
             <Image
               className={styles.logo}
-              src="/vercel.svg"
+              src={appPath + "/vercel.svg"}
               alt="Vercel logomark"
               width={20}
               height={20}
@@ -54,7 +57,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="/file.svg"
+            src={appPath + "/file.svg"}
             alt="File icon"
             width={16}
             height={16}
@@ -68,7 +71,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="/window.svg"
+            src={appPath + "/window.svg"}
             alt="Window icon"
             width={16}
             height={16}
@@ -82,7 +85,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="/globe.svg"
+            src={appPath + "/globe.svg"}
             alt="Globe icon"
             width={16}
             height={16}
