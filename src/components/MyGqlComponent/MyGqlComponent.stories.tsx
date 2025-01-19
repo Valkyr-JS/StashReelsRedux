@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { SbDecApolloProvider } from "@/storybook/decorators";
-import MyGqlTest from "./MyGqlComponent";
+import MyGqlTest from ".";
 
 const meta: Meta<typeof MyGqlTest> = {
   title: "Demo/MyGqlTest",
