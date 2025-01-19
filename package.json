@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.12.6",
+    "@apollo/experimental-nextjs-app-support": "^0.11.7",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/pro-light-svg-icons": "^6.7.2",
     "@fortawesome/pro-solid-svg-icons": "^6.7.2",

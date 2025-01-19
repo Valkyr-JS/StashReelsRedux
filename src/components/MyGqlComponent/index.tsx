@@ -1,20 +1,29 @@
+"use client";
 import { useQuery, gql } from "@apollo/client";
 import React from "react";
 
+/** A component created to test database connection. Fetches a performer and
+ * their basic data from the database. */
 const MyGqlTest: React.FC<MyTestProps> = () => {
   const { loading, error, data } = useFetchInfo();
 
-  console.log(data);
-
   if (loading) {
-    return <p>Loading...</p>;
+    return <div style={{ textAlign: "center" }}>Loading performer...</div>;
   }
 
   if (error) {
-    return <p>There was an error fetching the data!</p>;
+    return (
+      <div style={{ textAlign: "center" }}>
+        There was an error fetching the data!
+      </div>
+    );
   }
 
-  return <div>{data?.findPerformer.name}</div>;
+  return (
+    <div style={{ textAlign: "center" }}>
+      Performer: #{data?.findPerformer.id} {data?.findPerformer.name}
+    </div>
+  );
 };
 
 export default MyGqlTest;
@@ -26,13 +35,8 @@ interface MyTestProps {
 const FindPerformerQuery = gql`
   query FindPerformer {
     findPerformer(id: 1) {
-      birthdate
-      disambiguation
-      ethnicity
-      gender
       id
       name
-      urls
     }
   }
 `;

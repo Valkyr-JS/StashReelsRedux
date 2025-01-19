@@ -1,6 +1,7 @@
 import Image from "next/legacy/image";
 import styles from "./page.module.scss";
 import nextConfig from "../../next.config";
+import MyGqlTest from "@/components/MyGqlComponent";
 
 const appPath = nextConfig.basePath;
 
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <MyGqlTest title="My test" />
         <Image
           className={styles.logo}
           src={appPath + "/next.svg"}
