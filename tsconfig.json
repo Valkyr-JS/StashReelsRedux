@@ -19,6 +19,8 @@
       }
     ],
     "paths": {
+      "@/mocks/*": ["./mocks/*"],
+      "@/storybook/*": ["./.storybook/*"],
       "@/*": ["./src/*"]
     }
   },

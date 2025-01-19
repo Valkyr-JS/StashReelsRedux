@@ -1,5 +1,5 @@
 import { graphql, HttpResponse } from "msw";
-import { MOCK_SCENE_O_RECORD, MOCK_SCENE_PLAY_RECORD } from "../constants";
+import { MOCK_SCENE_O_RECORD, MOCK_SCENE_PLAY_RECORD } from "@/mocks/constants";
 
 /**
  * For `function*` docs, see:

@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/mocks/data
 
 # next.js
 /.next/

@@ -6,7 +6,7 @@ import { DecoratorFunction } from "storybook/internal/types";
 const mockedClient = new ApolloClient({
   uri:
     process.env.NODE_ENV === "development"
-      ? process.env["STASH_SERVER"] + "/playground"
+      ? process.env["STASH_SERVER"] + "playground"
       : "/playground",
   cache: new InMemoryCache(),
   defaultOptions: {
