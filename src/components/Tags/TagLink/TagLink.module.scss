@@ -1,3 +1,9 @@
+@import "../../../scss/buttons.scss";
+
+.base {
+  @include button;
+}
+
 .disabled {
   pointer-events: none;
 }

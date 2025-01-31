@@ -18,7 +18,7 @@ interface TagLinkProps {
  * list. */
 const TagLink: React.FC<TagLinkProps> = (props) => {
   const href = "/tags/" + props.id;
-  const linkClasses = cx({ [styles.disabled]: props.disabled });
+  const linkClasses = cx(styles.base, { [styles.disabled]: props.disabled });
 
   /** Handler for the Link click event. */
   const onClickHandler: React.MouseEventHandler<HTMLAnchorElement> = (e) => {

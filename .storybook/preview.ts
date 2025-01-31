@@ -1,6 +1,8 @@
 import type { Preview } from "@storybook/react";
 import { initialize, mswLoader } from "msw-storybook-addon";
 import { handlers } from "../mocks/handlers";
+import "modern-normalize/modern-normalize.css";
+import "../src/scss/root.scss";
 
 /*
  * Initializes MSW
