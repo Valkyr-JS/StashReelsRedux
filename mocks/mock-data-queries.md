@@ -137,3 +137,38 @@ query {
   }
 }
 ```
+
+## Tags
+
+### FindTag
+
+```
+query {
+  findTag(id: ) {
+    id
+    name
+    description
+    aliases
+    ignore_auto_tag
+    created_at
+    updated_at
+    favorite
+    image_path
+    scene_count
+    scene_marker_count
+    image_count
+    gallery_count
+    performer_count
+    studio_count
+    group_count
+    parents {
+      id
+    }
+    children {
+      id
+    }
+    parent_count
+    child_count
+  }
+}
+```
