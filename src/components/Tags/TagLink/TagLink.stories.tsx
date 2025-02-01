@@ -16,6 +16,15 @@ const meta: Meta<typeof TagLink> = {
   title: "Components/Tags/TagLink",
   component: TagLink,
   tags: ["autodocs", "buttons", "tags"],
+  args: {
+    disabled: false,
+    favorite: false,
+  },
+  argTypes: {
+    favorite: {
+      control: "boolean",
+    },
+  },
 };
 
 export default meta;
@@ -31,4 +40,8 @@ export const TagB: Story = {
 
 export const Disabled: Story = {
   args: { ...getArgsFromData("5"), disabled: true },
+};
+
+export const Favorite: Story = {
+  args: { ...getArgsFromData("6"), favorite: true },
 };

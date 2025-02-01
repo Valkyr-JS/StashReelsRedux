@@ -2,6 +2,7 @@ import React from "react";
 import { default as cx } from "classnames";
 import Link from "next/link";
 import styles from "./TagLink.module.scss";
+import { FavoriteIcon } from "@/components/Icons";
 
 export interface TagLinkProps {
   /** The Stash ID of the tag. */
@@ -12,6 +13,9 @@ export interface TagLinkProps {
 
   /** Whether the link is currently disabled. Defaults to `false`. */
   disabled?: boolean;
+
+  /** Whether the tag has been marked by the user as a favorite. */
+  favorite?: Tag["favorite"];
 }
 
 /** A button-like component that links to a tag page. Typically presented in a
@@ -27,6 +31,15 @@ const TagLink: React.FC<TagLinkProps> = (props) => {
     if (props.disabled) e.preventDefault();
   };
 
+  /* ------------------------------------------ Favorite ------------------------------------------ */
+
+  const favoriteIcon = props.favorite ? <FavoriteIcon noSrText /> : null;
+  const favoriteSR = props.favorite ? (
+    <span className={styles["favorite-text"]}>Favorite tag</span>
+  ) : null;
+
+  /* ------------------------------------------ Component ----------------------------------------- */
+
   return (
     <Link
       aria-disabled={props.disabled}
@@ -36,7 +49,9 @@ const TagLink: React.FC<TagLinkProps> = (props) => {
       prefetch={!props.disabled}
       tabIndex={tabIndex}
     >
-      {props.name}
+      {favoriteIcon}
+      <span>{props.name}</span>
+      {favoriteSR}
     </Link>
   );
 };

@@ -1,3 +1,5 @@
+@use "@/scss/mixins.scss";
+
 .base {
   display: inline-block;
   padding: var(--tag-link-padding-y) var(--tag-link-padding-x);
@@ -28,9 +30,17 @@
     border-color: var(--tag-link-focus-border-color);
     outline: 0;
   }
+
+  svg + span {
+    margin-left: var(--spacer);
+  }
 }
 
 .disabled {
   opacity: var(--tag-link-disabled-opacity);
   pointer-events: none;
+}
+
+.favorite-text {
+  @include mixins.visually-hidden;
 }
