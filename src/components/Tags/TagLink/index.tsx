@@ -22,7 +22,7 @@ export interface TagLinkProps {
  * list. */
 const TagLink: React.FC<TagLinkProps> = (props) => {
   const href = "/tags/" + props.id;
-  const linkClasses = cx(styles.base, { [styles.disabled]: props.disabled });
+  const linkClasses = cx(styles.TagLink, { [styles.disabled]: props.disabled });
   const tabIndex = props.disabled ? -1 : undefined;
 
   /** Handler for the Link click event. */

@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { initialize, mswLoader } from "msw-storybook-addon";
 import { handlers } from "../mocks/handlers";
 import "modern-normalize/modern-normalize.css";
@@ -24,6 +25,10 @@ const preview: Preview = {
     layout: "centered",
     msw: {
       handlers,
+    },
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: "iphone5",
     },
   },
 

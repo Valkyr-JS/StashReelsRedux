@@ -1,0 +1,16 @@
+.TruncatedText {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    margin-right: auto;
+    margin-top: var(--spacer);
+  }
+}
+
+.inner {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: pre-line;
+}
