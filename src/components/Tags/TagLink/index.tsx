@@ -3,7 +3,7 @@ import { default as cx } from "classnames";
 import Link from "next/link";
 import styles from "./TagLink.module.scss";
 
-interface TagLinkProps {
+export interface TagLinkProps {
   /** The Stash ID of the tag. */
   id: Tag["id"];
 

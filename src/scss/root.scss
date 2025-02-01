@@ -1,3 +1,5 @@
+@use "sass:math";
+
 :root {
   /* ------------------------------------------- Common ------------------------------------------- */
 
@@ -9,6 +11,8 @@
   --focus-ring-width: 0.25rem;
 
   --transition-base: all 0.15s ease-in-out;
+
+  --spacer: #{math.div(1rem, 1.6)};
 
   /* ------------------------------------------- Colors ------------------------------------------- */
 
@@ -40,7 +44,7 @@
 
   /* -------------------------------------------- Tags -------------------------------------------- */
 
-  --tag-link-padding-x: 0.75rem;
+  --tag-link-padding-x: 1.5rem;
   --tag-link-padding-y: 0.75rem;
   --tag-link-font-family: var(--font-family-base);
   --tag-link-font-size: var(--font-size-base);
@@ -61,4 +65,7 @@
 
   --tag-link-focus-color: var(--body-color);
   --tag-link-focus-border-color: var(--tag-link-focus-color);
+
+  // Tag list
+  --tag-list-item-gap: var(--spacer);
 }

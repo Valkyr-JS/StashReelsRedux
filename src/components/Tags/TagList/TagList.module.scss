@@ -1,0 +1,13 @@
+@use "sass:math";
+
+.TagList {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tag-list-item-gap);
+  }
+}
