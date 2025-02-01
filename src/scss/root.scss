@@ -45,14 +45,14 @@
   /* -------------------------------------------- Tags -------------------------------------------- */
 
   --tag-link-padding-x: 1.5rem;
-  --tag-link-padding-y: 0.75rem;
+  --tag-link-padding-y: 0.5rem;
   --tag-link-font-family: var(--font-family-base);
   --tag-link-font-size: var(--font-size-base);
   --tag-link-font-weight: var(--font-weight-base);
   --tag-link-line-height: var(--line-height-base);
   --tag-link-color: #{$gray-300};
   --tag-link-bg: var(--body-bg);
-  --tag-link-border-width: 1px;
+  --tag-link-border-width: 2px;
   --tag-link-border-color: var(--tag-link-bg);
   --tag-link-border-radius: 1.5rem;
   --tag-link-transition: var(--transition-base);
