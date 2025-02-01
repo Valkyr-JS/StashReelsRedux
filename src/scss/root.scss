@@ -4,14 +4,32 @@
   --border-radius: 0.375rem;
   --border-width: 1px;
 
+  --disabled-opacity: 0.65;
+
   --focus-ring-width: 0.25rem;
+
+  --transition-base: all 0.15s ease-in-out;
 
   /* ------------------------------------------- Colors ------------------------------------------- */
 
-  --body-bg: #fff;
-  --body-color: #171717;
+  $white: #fff;
+  $black: #000;
 
-  --link-color: blue;
+  $gray-50: #fafafa;
+  $gray-100: #f5f5f5;
+  $gray-200: #eeeeee;
+  $gray-300: #e0e0e0;
+  $gray-400: #bdbdbd;
+  $gray-500: #9e9e9e;
+  $gray-600: #757575;
+  $gray-700: #616161;
+  $gray-800: #424242;
+  $gray-900: #212121;
+
+  --body-bg: #{$gray-900};
+  --body-color: #{$gray-50};
+
+  --link-color: var(--body-color);
 
   /* ----------------------------------------- Typography ----------------------------------------- */
 
@@ -20,29 +38,27 @@
   --font-weight-base: 300;
   --line-height-base: 1.5;
 
-  /* ------------------------------------------- Buttons ------------------------------------------ */
+  /* -------------------------------------------- Tags -------------------------------------------- */
 
-  --btn-padding-x: 0.75rem;
-  --btn-padding-y: 0.375rem;
-  --btn-font-family: var(--font-family-base);
-  --btn-font-size: var(--font-size-base);
-  --btn-font-weight: var(--font-weight-base);
-  --btn-line-height: var(--line-height-base);
-  --btn-color: var(--body-color);
-  --btn-bg: transparent;
-  --btn-border-width: var(--border-width);
-  --btn-border-color: transparent;
-  --btn-border-radius: var(--border-radius);
-  --btn-box-shadow: inset 0 1px 0 rgba(#fff, 0.15), 0 1px 1px rgba(#000, 0.075);
+  --tag-link-padding-x: 0.75rem;
+  --tag-link-padding-y: 0.75rem;
+  --tag-link-font-family: var(--font-family-base);
+  --tag-link-font-size: var(--font-size-base);
+  --tag-link-font-weight: var(--font-weight-base);
+  --tag-link-line-height: var(--line-height-base);
+  --tag-link-color: #{$gray-300};
+  --tag-link-bg: var(--body-bg);
+  --tag-link-border-width: 1px;
+  --tag-link-border-color: var(--tag-link-bg);
+  --tag-link-border-radius: 1.5rem;
+  --tag-link-transition: var(--transition-base);
 
-  --btn-disabled-opacity: 0.65;
+  --tag-link-hover-color: var(--body-color);
+  --tag-link-hover-bg: #{$black};
+  --tag-link-hover-border-color: var(--tag-link-border-color);
 
-  --btn-focus-width: var(--focus-ring-width);
-  --btn-focus-shadow-rgb: to-rgb(
-    mix(color-contrast(var(--link-color)), var(--link-color), 15%)
-  );
-  --btn-focus-box-shadow: 0 0 0 var(--focus-ring-width)
-    rgba(var(--btn-focus-shadow-rgb), 0.5);
+  --tag-link-disabled-opacity: var(--disabled-opacity);
 
-  --btn-hover-border-color: transparent;
+  --tag-link-focus-color: var(--body-color);
+  --tag-link-focus-border-color: var(--tag-link-focus-color);
 }

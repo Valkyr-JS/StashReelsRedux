@@ -19,6 +19,7 @@ interface TagLinkProps {
 const TagLink: React.FC<TagLinkProps> = (props) => {
   const href = "/tags/" + props.id;
   const linkClasses = cx(styles.base, { [styles.disabled]: props.disabled });
+  const tabIndex = props.disabled ? -1 : undefined;
 
   /** Handler for the Link click event. */
   const onClickHandler: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
@@ -33,6 +34,7 @@ const TagLink: React.FC<TagLinkProps> = (props) => {
       href={href}
       onClick={onClickHandler}
       prefetch={!props.disabled}
+      tabIndex={tabIndex}
     >
       {props.name}
     </Link>

@@ -1,9 +1,36 @@
-@import "../../../scss/buttons.scss";
-
 .base {
-  @include button;
+  display: inline-block;
+  padding: var(--tag-link-padding-y) var(--tag-link-padding-x);
+  font-family: var(--tag-link-font-family);
+  font-size: var(--tag-link-font-size);
+  font-weight: var(--tag-link-font-weight);
+  line-height: var(--tag-link-line-height);
+  color: var(--tag-link-color);
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: var(--tag-link-border-width) solid var(--tag-link-border-color);
+  border-radius: var(--tag-link-border-radius);
+  background-color: var(--tag-link-bg);
+  transition: var(--tag-link-transition);
+
+  &:hover {
+    color: var(--tag-link-hover-color);
+    background-color: var(--tag-link-hover-bg);
+    border-color: var(--tag-link-hover-border-color);
+  }
+
+  &:focus-visible {
+    color: var(--tag-link-focus-color);
+    border-color: var(--tag-link-focus-border-color);
+    outline: 0;
+  }
 }
 
 .disabled {
+  opacity: var(--tag-link-disabled-opacity);
   pointer-events: none;
 }
