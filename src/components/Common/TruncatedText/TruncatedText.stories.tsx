@@ -37,7 +37,7 @@ export const LimitThree: Story = {
     expect(inner.offsetHeight + 3).toBeLessThan(inner.scrollHeight);
     expect(readMore).toHaveTextContent("Read more");
 
-    // Simulate clicking the "read more" button
+    // Simulate clicking the "read more" button.
     await userEvent.click(readMore);
     expect(inner.offsetHeight + 3).toBeGreaterThanOrEqual(inner.scrollHeight);
     expect(readMore).toHaveTextContent("Read less");
@@ -59,9 +59,8 @@ export const NoLimit: Story = {
     const readMore = canvas.queryByRole("button");
     // See component for an explanation of the 3px buffer.
 
-    // The text should be truncated by default - forced in this instance by the
-    // large amount of text and the small decorator. The button should also read
-    // "Read more" by default.
+    // The text shouldn't overflow, and there should be no "read more" button
+    // displayed.
     expect(inner.offsetHeight + 3).toBeGreaterThanOrEqual(inner.scrollHeight);
     expect(readMore).not.toBeInTheDocument();
   },
