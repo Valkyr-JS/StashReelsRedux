@@ -12,7 +12,10 @@
 
   --transition-base: all 0.2s ease-in-out;
 
-  --spacer: #{math.div(1rem, 1.6)};
+  $spacer: math.div(1rem, 1.6);
+  $spacer-sm: math.div($spacer, 2);
+  --spacer: #{$spacer};
+  --spacer-sm: #{$spacer-sm};
 
   /* ------------------------------------------- Colors ------------------------------------------- */
 
@@ -94,7 +97,11 @@
   --body-bg: #{$dark};
   --body-color: #{$gray-50};
 
-  --link-color: var(--body-color);
+  --link-color: var(--primary-400);
+  --link-decoration-line: none;
+  --link-transition: none;
+
+  --link-hover-color: var(--primary-100);
 
   /* ----------------------------------------- Typography ----------------------------------------- */
 

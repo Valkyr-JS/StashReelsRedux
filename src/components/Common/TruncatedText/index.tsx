@@ -1,4 +1,6 @@
 import React, { PropsWithChildren, useEffect, useState } from "react";
+import LinkButton from "@/components/Buttons/LinkButton";
+import { TEXT } from "@/constants";
 import { useResizeObserver } from "@/hooks";
 import styles from "./TruncatedText.module.scss";
 
@@ -39,13 +41,9 @@ const TruncatedText: React.FC<ITruncatedTextProps> = (props) => {
     setIsExpanded(!isExpanded);
 
   const readMore = showButton ? (
-    <button
-      type="button"
-      className="btn btn-secondary"
-      onClick={readMoreClickHandler}
-    >
-      Read {isExpanded ? "less" : "more"}
-    </button>
+    <LinkButton onClick={readMoreClickHandler}>
+      {isExpanded ? TEXT.READ_LESS : TEXT.READ_MORE}
+    </LinkButton>
   ) : null;
 
   /* ----------------------------------------- Comnponent ----------------------------------------- */

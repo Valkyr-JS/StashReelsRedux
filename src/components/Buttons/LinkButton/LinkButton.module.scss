@@ -1,0 +1,21 @@
+.LinkButton {
+  color: var(--link-color);
+  background-color: transparent;
+  border-color: transparent;
+  border-width: 0;
+  border-radius: 3px;
+  text-decoration: var(--link-decoration-line);
+  padding: 0;
+  transition: var(--link-transition);
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    color: var(--link-hover-color);
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+}

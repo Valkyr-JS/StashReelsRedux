@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { userEvent, within, expect } from "@storybook/test";
+import { TEXT } from "@/constants";
 import TruncatedText from ".";
 
 const meta: Meta<typeof TruncatedText> = {
@@ -35,18 +36,18 @@ export const LimitThree: Story = {
     // large amount of text and the small decorator. The button should also read
     // "Read more" by default.
     expect(inner.offsetHeight + 3).toBeLessThan(inner.scrollHeight);
-    expect(readMore).toHaveTextContent("Read more");
+    expect(readMore).toHaveTextContent(TEXT.READ_MORE);
 
     // Simulate clicking the "read more" button.
     await userEvent.click(readMore);
     expect(inner.offsetHeight + 3).toBeGreaterThanOrEqual(inner.scrollHeight);
-    expect(readMore).toHaveTextContent("Read less");
+    expect(readMore).toHaveTextContent(TEXT.READ_LESS);
 
     // Simulate a final click, where everything should return to the initial
     // state.
     await userEvent.click(readMore);
     expect(inner.offsetHeight + 3).toBeLessThan(inner.scrollHeight);
-    expect(readMore).toHaveTextContent("Read more");
+    expect(readMore).toHaveTextContent(TEXT.READ_MORE);
   },
 };
 
