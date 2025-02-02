@@ -1,4 +1,6 @@
 import React from "react";
+import { default as cx } from "classnames";
+import styles from "./Button.module.scss";
 
 interface ButtonProps
   extends React.DetailedHTMLProps<
@@ -9,7 +11,10 @@ interface ButtonProps
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  return <button {...props} type={props.type ?? "button"} />;
+  const classes = cx(styles.Button, props.className, styles[props.variant]);
+  return (
+    <button {...props} className={classes} type={props.type ?? "button"} />
+  );
 };
 
 export default Button;

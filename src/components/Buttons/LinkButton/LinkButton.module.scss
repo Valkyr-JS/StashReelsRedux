@@ -3,7 +3,7 @@
   background-color: transparent;
   border-color: transparent;
   border-width: 0;
-  border-radius: 3px;
+  border-radius: var(--border-radius);
   text-decoration: var(--link-decoration-line);
   padding: 0;
   transition: var(--link-transition);
@@ -15,7 +15,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid currentColor;
+    outline: var(--border-width) solid currentColor;
     outline-offset: 3px;
   }
 }

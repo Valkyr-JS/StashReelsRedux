@@ -8,6 +8,11 @@ const roboto = localFont({
       weight: "300",
       style: "normal",
     },
+    {
+      path: "./Roboto-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
   ],
 });
 
