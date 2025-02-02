@@ -23,8 +23,11 @@ const TruncatedText: React.FC<ITruncatedTextProps> = (props) => {
     else if (ref.current) {
       const { offsetHeight, scrollHeight } = ref.current;
 
+      // `offsetHeight` doesn't seem to exactly match `scrollHeight` when there
+      // is no overflow. Add a 3px buffer to ensure the button isn't displayed
+      // if it isn't needed.
       const show =
-        !!offsetHeight && !!scrollHeight && offsetHeight < scrollHeight;
+        !!offsetHeight && !!scrollHeight && offsetHeight + 3 < scrollHeight;
       setShowButton(show);
     }
     // If the component can't be found, do not show the "read more" button.

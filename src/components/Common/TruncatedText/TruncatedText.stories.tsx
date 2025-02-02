@@ -16,7 +16,7 @@ export default meta;
 type Story = StoryObj<typeof TruncatedText>;
 
 export const LimitThree: Story = {
-  name: "3 line limit",
+  name: "3 Line Limit",
   args: {
     lineCount: 3,
   },
@@ -29,24 +29,40 @@ export const LimitThree: Story = {
       content.startsWith("Lorem ipsum dolor")
     );
     const readMore = canvas.getByRole("button");
-    // Add 2 to the offsetHeight in all cases so it matches the scrollheight -
-    // not clear why this is needed as the component doesn't have a border.
+    // See component for an explanation of the 3px buffer.
 
     // The text should be truncated by default - forced in this instance by the
     // large amount of text and the small decorator. The button should also read
     // "Read more" by default.
-    expect(inner.offsetHeight + 2).toBeLessThan(inner.scrollHeight);
+    expect(inner.offsetHeight + 3).toBeLessThan(inner.scrollHeight);
     expect(readMore).toHaveTextContent("Read more");
 
     // Simulate clicking the "read more" button
     await userEvent.click(readMore);
-    expect(inner.offsetHeight + 2).toEqual(inner.scrollHeight);
+    expect(inner.offsetHeight + 3).toBeGreaterThanOrEqual(inner.scrollHeight);
     expect(readMore).toHaveTextContent("Read less");
 
     // Simulate a final click, where everything should return to the initial
     // state.
     await userEvent.click(readMore);
-    expect(inner.offsetHeight + 2).toBeLessThan(inner.scrollHeight);
+    expect(inner.offsetHeight + 3).toBeLessThan(inner.scrollHeight);
     expect(readMore).toHaveTextContent("Read more");
+  },
+};
+
+export const NoLimit: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const inner = canvas.getByText((content) =>
+      content.startsWith("Lorem ipsum dolor")
+    );
+    const readMore = canvas.queryByRole("button");
+    // See component for an explanation of the 3px buffer.
+
+    // The text should be truncated by default - forced in this instance by the
+    // large amount of text and the small decorator. The button should also read
+    // "Read more" by default.
+    expect(inner.offsetHeight + 3).toBeGreaterThanOrEqual(inner.scrollHeight);
+    expect(readMore).not.toBeInTheDocument();
   },
 };
