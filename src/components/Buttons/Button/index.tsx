@@ -7,13 +7,28 @@ interface ButtonProps
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  variant: "primary" | "secondary";
+  variant?: "primary";
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const classes = cx(styles.Button, props.className, styles[props.variant]);
+  const classes = cx(styles.Button, props.className, {
+    [styles.primary]: props.variant === "primary",
+  });
+
+  /** Handler for the button click event. */
+  const onClickHandler: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    // If the link is disabled, stop the click event.
+    if (props.disabled) e.preventDefault();
+    else if (!!props.onClick) props.onClick(e);
+  };
+
   return (
-    <button {...props} className={classes} type={props.type ?? "button"} />
+    <button
+      {...props}
+      onClick={onClickHandler}
+      className={classes}
+      type={props.type ?? "button"}
+    />
   );
 };
 

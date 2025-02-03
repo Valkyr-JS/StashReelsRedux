@@ -14,17 +14,41 @@
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
-  border: var(--button-border-width) solid currentcolor;
+  border: var(--button-border-width) solid var(--button-border-color);
   border-radius: var(--button-border-radius);
   color: var(--button-color);
   background-color: var(--button-bg);
   transition: var(--button-transition);
+
+  &:hover {
+    color: var(--button-hover-color);
+    background-color: var(--button-hover-bg);
+    border-color: var(--button-hover-border-color);
+  }
+
+  &:focus-visible {
+    color: var(--button-focus-color);
+    border-color: var(--button-focus-border-color);
+    background-color: var(--button-focus-bg);
+    outline: 0;
+  }
+
+  &:disabled {
+    opacity: var(--button-disabled-opacity);
+    pointer-events: none;
+  }
 }
 
 .primary {
-  --button-color: var(--primary-400);
-}
+  --button-color: #{colors.$dark};
+  --button-bg: #{colors.$gray-300};
+  --button-border-color: #{colors.$gray-300};
 
-.secondary {
-  --button-color: #{colors.$gray-300};
+  --button-hover-color: #{colors.$dark};
+  --button-hover-bg: #{colors.$gray-400};
+  --button-hover-border-color: #{colors.$gray-100};
+
+  --button-focus-color: #{colors.$dark};
+  --button-focus-bg: var(--primary-400);
+  --button-focus-border-color: var(--primary-400);
 }
